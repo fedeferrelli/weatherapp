@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, StatusBar } from 'react-native';
 import axios from 'axios';
 import Form from './components/Form';
 import ListadoCiudades from './components/ListadoCiudades';
@@ -21,7 +20,13 @@ const App = () =>{
   return (
 
     <TouchableWithoutFeedback onPress={() => ocultarTeclado()}>
+     
+     
+       
+
       <View style = {styles.app}>
+
+      <StatusBar barStyle = "light-content" />
         <View style = {styles.view}>
 
            <Form 
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
 
   app:{
     flex: 1,
-    backgroundColor: "lightgrey",
+    backgroundColor: "black",
     //justifyContent: 'space-between',
     alignItems: 'center',
   },

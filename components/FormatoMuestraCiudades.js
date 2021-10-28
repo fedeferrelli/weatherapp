@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, FlatList, ScrollView, Image} from 'react-native';
 
 const FormatoMuestraCiudades = ({ciudadMostrar}) =>{
 
@@ -11,16 +11,21 @@ const FormatoMuestraCiudades = ({ciudadMostrar}) =>{
         <View style ={styles.conteiner}>
 
         <Text style = {styles.text}>
-            {ciudadMostrar}
+            {ciudadMostrar.name}
         </Text>
 
         <Text style = {styles.temp}>
-            {ciudadMostrar}
+            {parseInt(ciudadMostrar.main.temp - 273.15)}
+            <Text>
+                &#x2103;
+            </Text>
         </Text>
 
-        <Text style = {styles.icon}>
-            {ciudadMostrar}
-        </Text>
+        <Image 
+            style = {styles.icon}
+            source = {{uri:`http://openweathermap.org/img/w/${ciudadMostrar.weather[0].icon}.png`}}
+
+        />
 
         </View>
     </View>
@@ -38,11 +43,11 @@ const styles = StyleSheet.create({
     view:{
         width: "100%",
         height: 60,
-        backgroundColor: "#F9F3DF",
-        //borderColor: "black",
-        //borderTopWidth: 1,
-        //borderBottomWidth: 1,
-        borderRadius: 10,
+        backgroundColor: "#fff",
+        borderColor: "black",
+        //borderTopWidth: 0.5,
+        borderBottomWidth: 0.5,
+        borderRadius: 0,
 
         shadowColor: "#000",
         shadowOffset: {
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
 
         elevation: 2,
 
-        marginVertical: 5,
+        marginVertical: 0,
         padding: 5,
 
         justifyContent: 'center',
@@ -62,40 +67,42 @@ const styles = StyleSheet.create({
 
     conteiner:{
         flexDirection: 'row',
+        height: 'auto'
 
 
     },
 
     text:{
         paddingHorizontal: 10,
-        fontSize: 16,
-        color: "blue",
-        backgroundColor: 'grey',
+        fontSize: 20,
+        color: "black",
+       
         width: '60%', 
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%'
+        height: '100%', 
+
+        textAlignVertical: 'center'
         
     },
 
     temp:{
         paddingHorizontal: 10,
-        fontSize: 16,
-        color: "blue",
-        backgroundColor: 'orange',
+        fontSize: 20,
+        color: "black",
+     
         width: '20%', 
         justifyContent: 'center',
         alignItems: 'center',
-        textAlign: 'center'
+        textAlign: 'center', 
+        textAlignVertical: 'center'
     }, 
 
     icon:{
         paddingHorizontal: 10,
-        fontSize: 16,
-        color: "blue",
-        backgroundColor: 'yellow', 
         width: '20%',
-        textAlign: 'center'
+        width: 70,
+        height: 50
     }
 
 })

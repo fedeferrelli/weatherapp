@@ -43,11 +43,9 @@ const ListadoCiudades = ({listadoCiudades}) =>{
         <View style = {styles.view}>
 
             <FlatList
+           contentContainerStyle = {styles.flatList}
            data={ciudadesData}
-           renderItem={({item}) => (
-
-            <Text> {item.main.temp} </Text>
-           )}
+           renderItem={({item}) => <FormatoMuestraCiudades ciudadMostrar = {item} />}
                  
            //     <FormatoMuestraCiudades ciudadMostrar = {ciudad.item} />
                 
@@ -72,6 +70,13 @@ const styles = StyleSheet.create({
         width: "95%",
        // backgroundColor: 'black',
         marginBottom: 180,
+    }, 
+    
+    flatList:{
+        justifyContent: 'center',
+        textAlignVertical: 'center', 
+        
+        
     }
 
 })
