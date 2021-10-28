@@ -7,52 +7,14 @@ import ListadoCiudades from './components/ListadoCiudades';
 
 const App = () =>{
 
-  const [consultar, setConsultar] = useState(true);
-  const [res, setResultado] = useState({"name":'', "temp":''});
+  //const [consultar, setConsultar] = useState(true);
+ // const [res, setResultado] = useState({"name":'', "temp":''});
 
-  const ciudad = 'Carilo';
-  
-
-  useEffect(() => {
-
-    const consultarClima = async () =>{
-    if (consultar){
-      const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${appikey}`;
-      
-      try {
-        const respuesta = await fetch(url);
-        const resultado = await respuesta.json();
-        if(resultado.name){
-          setResultado({"name": resultado.name, "temp": resultado.main.temp-273.15});  
-        } else { Alert.alert(
-          "Error",
-          "Algo malió sal",
-          "ok"
-        )}
-        
-                
-      } catch (error){
-        Alert.alert(
-          "Error",
-          "Algo malió sal",
-          "ok"
-        )
-      }       
-    };
-  };
-    consultarClima();
-  }, [consultar]);
-
- 
-
-  const yo = res.temp;
-  
   const ocultarTeclado = () => {
-      Keyboard.dismiss();
+     // Keyboard.dismiss();
   }
 
-  const [ciudadInput, setCiudadInput] = useState([]);
+  const [ciudadInput, setCiudadInput] = useState("fede");
 
   const [listadoCiudades, setListadoCiudades] = useState([]);
 
