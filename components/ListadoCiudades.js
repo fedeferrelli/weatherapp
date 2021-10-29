@@ -67,7 +67,7 @@ export default ListadoCiudades;
 const styles = StyleSheet.create({
 
     view:{
-        width: "95%",
+        width: "96%",
        // backgroundColor: 'black',
         marginBottom: 180,
     }, 

@@ -42,40 +42,32 @@ const styles = StyleSheet.create({
 
     view:{
         width: "100%",
-        height: 60,
+        height: 65,
         backgroundColor: "#fff",
-        borderColor: "black",
+        borderColor: "lightgrey",
         //borderTopWidth: 0.5,
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 1,
         borderRadius: 0,
 
-        shadowColor: "#000",
-        shadowOffset: {
-	    width: 0,
-	    height: 1,
-                        },
-        shadowOpacity: 0.20,
-        shadowRadius: 1.41,
-
-        elevation: 2,
-
-        marginVertical: 0,
         padding: 5,
-
+       
         justifyContent: 'center',
     },
 
     conteiner:{
         flexDirection: 'row',
-        height: 'auto'
+        height: 'auto',
 
+        
 
     },
 
     text:{
+     
+        color: "grey",
         paddingHorizontal: 10,
-        fontSize: 20,
-        color: "black",
+        fontSize: 18,
+       
        
         width: '60%', 
         justifyContent: 'center',
@@ -88,8 +80,8 @@ const styles = StyleSheet.create({
 
     temp:{
         paddingHorizontal: 10,
-        fontSize: 20,
-        color: "black",
+        fontSize: 18,
+        color: "grey",
      
         width: '20%', 
         justifyContent: 'center',

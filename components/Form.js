@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
-    TouchableWithoutFeedback, Alert} from 'react-native';
+    TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
 
 const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}) => {
 
@@ -59,11 +59,18 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}
       agregarListado();
       }, [check]);
 
+      const btnAction = () =>{
+        setCheck(!check);
+        Keyboard.dismiss();
+
+      }
 
     return(
         
         
         <View style = {styles.view}>
+
+            <View style={styles.form}>
             <TextInput
             placeholder = 'Ingresa una ciudad'
             placeholderTextColor = "rgb(125, 125, 125)"
@@ -76,13 +83,13 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}
             
            <View style={styles.viewbtn}>
             <TouchableHighlight
-                style={styles.btnCotizar}
-                onPress={ () => setCheck(!check) }
+                style={styles.btnAgregar}
+                onPress={ () => btnAction() }
             >
-                <Text style={styles.textoCotizar}>Agregar!</Text>
+                <Text style={styles.textoCotizar}>+</Text>
             </TouchableHighlight>
             </View>
-          
+            </View>
 
         </View>
         
@@ -96,56 +103,83 @@ export default Form;
 const styles = StyleSheet.create({
 
     view:{
-        marginTop: 100,
-        marginBottom: 20,
-        width: "90%",
-        justifyContent: 'center',
-        textAlign: 'center',
-        alignContent: 'center',
+        marginTop: 0,
+        marginBottom: 0,
+        width: "100%",
+    
 
-       // backgroundColor: 'blue',
-        paddingVertical: 10,
+
+    
+
+    
+
+     backgroundColor:'#700B97',
+     height: 100,
+     
+     justifyContent: 'center',
+     alignItems: 'center',
 
     }, 
 
+    form:{
+        flexDirection: "row",
+        flexWrap: "wrap",
+        width: '90%',
+        justifyContent: 'center',
+     textAlign: 'center',
+     alignItems: 'center',
+
+     
+    },
+
     input:{
+
         height: 50,
         backgroundColor: "#fff",
-        borderColor: "#e2e2e2",
-        borderWidth: 1,
-        borderRadius: 10,
-        paddingHorizontal:10,
+       // borderColor: "#e2e2e2",
+       // borderWidth: 1,
+       //borderRadius: 10,
+       paddingHorizontal:10,
+       // borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 15,
 
 
-        shadowColor: "#000",
-        shadowOffset: {
-	    width: 0,
-	    height: 6,
-        },
-        shadowOpacity: 0.39,
-        shadowRadius: 8.30,
 
-        elevation: 13,
+        
+        width:'85%',
+        marginRight: 0,
+        marginVertical: 20,
+
+
+
+
+
     }, 
 
     viewbtn:{
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100%',
-
+        width: '15%',
+        marginLeft: 0,
     },
 
-    btnCotizar: {
+    btnAgregar: {
         backgroundColor: '#C37B89',
-        padding: 10,
-        marginTop: 15,
-        width: "80%",
-        borderRadius: 10,
+        //padding: 10,
+       justifyContent: 'center',
+       textAlignVertical: 'center',
+
+        width: "100%",
+       
+       height: 50,
+      borderTopRightRadius: 15,
+       // borderBottomRightRadius: 5,
         
     },
     textoCotizar: {
         color: '#FFF',
-        fontSize: 18,
+        fontSize: 25,
         textTransform: 'uppercase',
         textAlign: 'center',
         

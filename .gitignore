@@ -9,6 +9,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+form2
+listCdades2
 
 # macOS
 .DS_Store

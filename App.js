@@ -26,10 +26,11 @@ const App = () =>{
 
       <View style = {styles.app}>
 
-      <StatusBar barStyle = "light-content" />
+      <StatusBar barStyle = "light-content" backgroundColor='#700B97' />
         <View style = {styles.view}>
 
            <Form 
+           style={styles.form}
            ciudadInput = {ciudadInput} 
            setCiudadInput = {setCiudadInput}
            listadoCiudades = {listadoCiudades}
@@ -51,30 +52,22 @@ const styles = StyleSheet.create({
 
   app:{
     flex: 1,
-    backgroundColor: "black",
+    //backgroundColor: "black",
     //justifyContent: 'space-between',
     alignItems: 'center',
   },
 
   view:{
     width:"100%",
-    
-    alignItems: 'center',
+  },
 
+  form:{
+   // backgroundColor: 'blue'
   },
  
-  contenido: {
-    marginHorizontal: '2.5%',
-    marginVertical: 0,
-  },
+ listadoCiudades:{
 
-  componente:{
-    marginTop: 0,
-  },
-
-  listadoCiudades:{
-
-    width: "100%",
+    width: "90%",
 
   }
  
