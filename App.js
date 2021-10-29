@@ -16,10 +16,11 @@ const App = () =>{
   const [ciudadInput, setCiudadInput] = useState("fede");
 
   const [listadoCiudades, setListadoCiudades] = useState([]);
+  
 
   return (
 
-    <TouchableWithoutFeedback onPress={() => ocultarTeclado()}>
+    <TouchableWithoutFeedback onPress={() => ocultarTeclado()} style={styles.app}>
      
      
        
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
  listadoCiudades:{
 
     width: "90%",
+    marginBottom: 10,
 
   }
  

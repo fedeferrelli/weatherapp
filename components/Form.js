@@ -58,7 +58,7 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}
       };
       agregarListado();
       }, [check]);
-
+      
       const btnAction = () =>{
         setCheck(!check);
         Keyboard.dismiss();
