@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, StatusBar } from 'react-native';
-import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Form from './components/Form';
 import ListadoCiudades from './components/ListadoCiudades';
 
@@ -16,7 +16,34 @@ const App = () =>{
   const [ciudadInput, setCiudadInput] = useState("fede");
 
   const [listadoCiudades, setListadoCiudades] = useState([]);
+
+const [refresh, setRefresh] = useState(true);
   
+  useEffect(() => {
+    const obtenerCiudadesStorage = async() =>{
+      try {
+        const ciudadesStorage = await AsyncStorage.getItem('ciudades');
+        if (ciudadesStorage){
+        setListadoCiudades(JSON.parse(ciudadesStorage))
+        }
+      } catch (error) {
+
+        console.log(error)
+        
+      }
+    } 
+    obtenerCiudadesStorage();
+  }, [refresh])
+
+  
+  const almacenarCiudades = async (ciudadJSON) =>{
+    try {
+      await AsyncStorage.setItem('ciudades', ciudadJSON);
+    } catch (error) {
+      console.log(error)       
+    }
+}
+
 
   return (
 
@@ -36,11 +63,17 @@ const App = () =>{
            setCiudadInput = {setCiudadInput}
            listadoCiudades = {listadoCiudades}
            setListadoCiudades = {setListadoCiudades}
+           almacenarCiudades = {almacenarCiudades}
            />
         </View>
 
        <ListadoCiudades 
        listadoCiudades = {listadoCiudades}
+       setListadoCiudades = {setListadoCiudades}
+       almacenarCiudades = {almacenarCiudades}
+       refresh = {refresh}
+       setRefresh = {setRefresh}
+
        style = {styles.listadoCiudades}
        />
       
@@ -69,7 +102,7 @@ const styles = StyleSheet.create({
  listadoCiudades:{
 
     width: "90%",
-    marginBottom: 10,
+    marginBottom: 100,
 
   }
  

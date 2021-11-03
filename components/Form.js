@@ -1,10 +1,25 @@
 import React, {useState, useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
     TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
 
-const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}) => {
+const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades, almacenarCiudades
+}) => {
 
      const [check, setCheck] = useState(false)
+
+     const [ciudadesNuevas, setCiudadesNuevas] = useState([])
+
+    
+    console.log(listadoCiudades)
+
+   /*  const almacenarCiudades = async (ciudadJSON) =>{
+        try {
+          await AsyncStorage.setItem('ciudades', ciudadJSON);
+        } catch (error) {
+          console.log(error)       
+        }
+    } */
     
     
     useEffect(() => {
@@ -27,9 +42,10 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}
                 try {
                     const respuesta = await fetch(url);
                     const resultado = await respuesta.json();
+                    const citi_name = await resultado.name;
 
-                    if(resultado.name){
-                        if(listadoCiudades.includes(resultado.name)){
+                    if(citi_name){
+                        if(listadoCiudades.includes(citi_name)){
                             Alert.alert(
                                 'Oops',
                                 'Parece que la ciudad que ingresaste ya figura en la lista',
@@ -37,7 +53,14 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}
                             )
                         }
                         else{
-                            setListadoCiudades([...listadoCiudades, resultado.name]) 
+                            setListadoCiudades([...listadoCiudades, citi_name])
+                            setCiudadesNuevas(citi_name)
+
+                            console.log(listadoCiudades)
+                            console.log(ciudadesNuevas)
+                    
+                            
+                            almacenarCiudades(JSON.stringify(listadoCiudades))
                         }               
                     } 
                     else { 
@@ -57,7 +80,13 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades}
             };             
       };
       agregarListado();
+      console.log(listadoCiudades);
+      console.log(ciudadesNuevas)
       }, [check]);
+
+
+     
+
       
       const btnAction = () =>{
         setCheck(!check);

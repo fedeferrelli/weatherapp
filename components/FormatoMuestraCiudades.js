@@ -1,13 +1,25 @@
-import React from 'react';
-import { View, Text, StyleSheet, FlatList, ScrollView, Image} from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, StyleSheet, TouchableWithoutFeedback , Image} from 'react-native';
+import ListadoCiudades from './ListadoCiudades';
 
-const FormatoMuestraCiudades = ({ciudadMostrar}) =>{
+const FormatoMuestraCiudades = ({ciudadMostrar, listadoCiudades, setListadoCiudades, almacenarCiudades,
+refresh, setRefresh}) =>{
 
 
+   const [filtradas, setFiltradas] = useState([])
+
+const deleteCiti = ciudad =>{
+    const ciudadesFiltradas = listadoCiudades.filter(citi => citi !==ciudad);
+    setFiltradas(ciudadesFiltradas);
+    almacenarCiudades(JSON.stringify(filtradas))
+    setRefresh(!refresh)
+
+}
 
     return(
         
-    <View style = {styles.view}>
+    <View style = {styles.view} >
+      <TouchableWithoutFeedback  onPress = {() => deleteCiti(ciudadMostrar.name)}>
         <View style ={styles.conteiner}>
 
         <Text style = {styles.text}>
@@ -28,6 +40,8 @@ const FormatoMuestraCiudades = ({ciudadMostrar}) =>{
         />
 
         </View>
+
+        </TouchableWithoutFeedback>
     </View>
    
 );
