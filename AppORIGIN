@@ -4,17 +4,21 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Form from './components/Form';
 import ListadoCiudades from './components/ListadoCiudades';
 
-
 const App = () =>{
 
-  const [ciudadInput, setCiudadInput] = useState();
-  const [checkInput, setCheckInput] = useState(false);
-  const [listadoCiudades, setListadoCiudades] = useState([]);
-  const [ciudadNueva, setCiudadNueva] = useState();
-  const [guardarStorage, setGuardarStorage] = useState(false);
-  const [citiExist, setCitiExist] = useState(false);
-  const [refresh, setRefresh] = useState(false);
+  //const [consultar, setConsultar] = useState(true);
+ // const [res, setResultado] = useState({"name":'', "temp":''});
 
+  const ocultarTeclado = () => {
+     // Keyboard.dismiss();
+  }
+
+  const [ciudadInput, setCiudadInput] = useState("fede");
+
+  const [listadoCiudades, setListadoCiudades] = useState([]);
+
+const [refresh, setRefresh] = useState(true);
+  
   useEffect(() => {
     const obtenerCiudadesStorage = async() =>{
       try {
@@ -27,48 +31,30 @@ const App = () =>{
         console.log(error)
         
       }
-    }
-     
-
-    
-/* const getAllKeys = async () => {
-  try {
-    await AsyncStorage.removeItem('ciudades')
-  } catch(e) {
-    // remove error
-  }
-
-}
-
-getAllKeys(); */
-
-
+    } 
     obtenerCiudadesStorage();
-     
-  }, []);
+  }, [refresh])
 
-
+  
   const almacenarCiudades = async (ciudadJSON) =>{
     try {
       await AsyncStorage.setItem('ciudades', ciudadJSON);
     } catch (error) {
       console.log(error)       
-    };
-    setCiudadInput('');
+    }
 }
-
-
-console.log(listadoCiudades)
 
 
   return (
 
-    <TouchableWithoutFeedback /* onPress={() => ocultarTeclado()} */ style={styles.app}>    
+    <TouchableWithoutFeedback onPress={() => ocultarTeclado()} style={styles.app}>
+     
+     
+       
 
       <View style = {styles.app}>
 
-        <StatusBar barStyle = "light-content" backgroundColor='#700B97' />
-       
+      <StatusBar barStyle = "light-content" backgroundColor='#700B97' />
         <View style = {styles.view}>
 
            <Form 
@@ -77,24 +63,22 @@ console.log(listadoCiudades)
            setCiudadInput = {setCiudadInput}
            listadoCiudades = {listadoCiudades}
            setListadoCiudades = {setListadoCiudades}
-           checkInput = {checkInput}
-           setCheckInput = {setCheckInput}
            almacenarCiudades = {almacenarCiudades}
            />
         </View>
 
-        {<ListadoCiudades 
-        listadoCiudades = {listadoCiudades}
-        setListadoCiudades = {setListadoCiudades}
-        almacenarCiudades = {almacenarCiudades}
-        refresh = {refresh}
-        setRefresh = {setRefresh}
+       <ListadoCiudades 
+       listadoCiudades = {listadoCiudades}
+       setListadoCiudades = {setListadoCiudades}
+       almacenarCiudades = {almacenarCiudades}
+       refresh = {refresh}
+       setRefresh = {setRefresh}
 
-        style = {styles.listadoCiudades}
-       />}
+       style = {styles.listadoCiudades}
+       />
       
       </View>  
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
   );
 };
 
@@ -118,7 +102,7 @@ const styles = StyleSheet.create({
  listadoCiudades:{
 
     width: "90%",
-    marginBottom: 200,
+    marginBottom: 100,
 
   }
  

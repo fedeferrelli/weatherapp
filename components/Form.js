@@ -3,96 +3,74 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
     TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
 
-const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades, almacenarCiudades
+const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades, checkInput, setCheckInput, almacenarCiudades
 }) => {
 
-     const [check, setCheck] = useState(false)
+     
 
-     const [ciudadesNuevas, setCiudadesNuevas] = useState([])
+ // Crear y agregar ciudades
 
-    
-    console.log(listadoCiudades)
+ const crearCiudad = async () => {
 
-   /*  const almacenarCiudades = async (ciudadJSON) =>{
-        try {
-          await AsyncStorage.setItem('ciudades', ciudadJSON);
-        } catch (error) {
-          console.log(error)       
+    if (ciudadInput==="" || !ciudadInput){
+        Alert.alert(
+            'Oops',
+            'Debes ingresar una ciudad',
+            [{text: 'Ok'}]
+          )
         }
-    } */
-    
-    
-    useEffect(() => {
+    else {
 
-        const agregarListado = async () =>{
-            if(ciudadInput==="fede"){
-               
-            }
-            else if (ciudadInput===""){
-                Alert.alert(
-                    'Oops',
-                    'Debes ingresar una ciudad',
-                    [{text: 'Ok'}]
-                )
-            }
-            else {
-                const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
-                const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadInput}&appid=${appikey}`;
-          
-                try {
-                    const respuesta = await fetch(url);
-                    const resultado = await respuesta.json();
-                    const citi_name = await resultado.name;
-
-                    if(citi_name){
-                        if(listadoCiudades.includes(citi_name)){
-                            Alert.alert(
-                                'Oops',
-                                'Parece que la ciudad que ingresaste ya figura en la lista',
-                                [{text: 'Ok'}]
-                            )
-                        }
-                        else{
-                            setListadoCiudades([...listadoCiudades, citi_name])
-                            setCiudadesNuevas(citi_name)
-
-                            console.log(listadoCiudades)
-                            console.log(ciudadesNuevas)
-                    
-                            
-                            almacenarCiudades(JSON.stringify(listadoCiudades))
-                        }               
-                    } 
-                    else { 
-                        Alert.alert(
-                        'Oops',
-                        'Parece que la ciudad que ingresaste no existe. Por favor verifica que esté bien escrita',
-                        [{text: 'Ok'}]
-                    )};
-                }
-                catch (error){
+        const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadInput}&appid=${appikey}`;
+        
+        try {
+            const respuesta = await fetch(url);
+            const resultado = await respuesta.json();
+            const citi_name = await resultado.name;
+  
+            if(citi_name){
+                if(listadoCiudades.includes(citi_name)){
                     Alert.alert(
-                    'Oops',
-                    'En este momento no podemos acceder a tu pedido. Por favor intentalo más tarde',
-                    [{text: 'Ok'}]
+                        'Oops',
+                        'Parece que la ciudad que ingresaste ya figura en la lista',
+                        [{text: 'Ok'}]
                     )
                 }
-            };             
-      };
-      agregarListado();
-      console.log(listadoCiudades);
-      console.log(ciudadesNuevas)
-      }, [check]);
-
+                else{
+                    const ciudadesNuevas = [... listadoCiudades, citi_name];
+                    setListadoCiudades(ciudadesNuevas);
+                    almacenarCiudades(JSON.stringify(ciudadesNuevas));
+                }               
+            } 
+            else { 
+                Alert.alert(
+                'Oops',
+                'Parece que la ciudad que ingresaste no existe. Por favor verifica que esté bien escrita',
+                [{text: 'Ok'}]
+            )};
+        }
+        catch (error){
+            Alert.alert(
+            'Oops',
+            'En este momento no podemos acceder a tu pedido. Por favor intentalo más tarde',
+            [{text: 'Ok'}]
+            )
+        }
+    };  
+    
+    
+ }
 
      
 
       
-      const btnAction = () =>{
-        setCheck(!check);
-        Keyboard.dismiss();
+const btnAction = () =>{
+//setCheckInput(true);
+crearCiudad();
+Keyboard.dismiss();
 
-      }
+}
 
     return(
         
@@ -103,7 +81,7 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,
             <TextInput
             placeholder = 'Ingresa una ciudad'
             placeholderTextColor = "rgb(125, 125, 125)"
-            defaultValue = ""
+            defaultValue = {ciudadInput}
             onChangeText = { ciudad => (setCiudadInput(ciudad))}
             
             style = {styles.input}
