@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, FlatList, Alert} from 'react-native';
 import FormatoMuestraCiudades from './FormatoMuestraCiudades';
-import { Icon } from 'react-native-elements'
+
+
 
 
 const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades, refresh, setRefresh}) =>{
@@ -51,27 +52,36 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
     return(
         <View style = {styles.view}>
 
-        {  <FlatList
-           contentContainerStyle = {styles.flatList}
-           data={ciudadesData}
-           renderItem={({item}) => <FormatoMuestraCiudades 
-                                    ciudadMostrar = {item}
-                                    almacenarCiudades = {almacenarCiudades}
-                                    listadoCiudades = {listadoCiudades}
-                                    setListadoCiudades = {setListadoCiudades} 
-                                    setRefresh = {setRefresh}
-                                    refresh = {refresh}/>
-                                }
-                 
-           //     <FormatoMuestraCiudades ciudadMostrar = {ciudad.item} />
+          {listadoCiudades.length > 0 ?
+          <FlatList
+          contentContainerStyle = {styles.flatList}
+          data={ciudadesData}
+          renderItem={({item}) => <FormatoMuestraCiudades 
+                                   ciudadMostrar = {item}
+                                   almacenarCiudades = {almacenarCiudades}
+                                   listadoCiudades = {listadoCiudades}
+                                   setListadoCiudades = {setListadoCiudades} 
+                                   setRefresh = {setRefresh}
+                                   refresh = {refresh}/>
+                               }
                 
-           // )}}
-           keyExtractor={ciudad => Math.random()}
+          //     <FormatoMuestraCiudades ciudadMostrar = {ciudad.item} />
+               
+          // )}}
+          keyExtractor={ciudad => Math.random()}
 
 
 
 
-            />}
+           /> :
+          
+           <Text style={styles.emptyText}>
+            Hola! {'\n\n'}
+            Todavía no ingresaste ninguna ciudad, cuando lo hagas se mostará aquí</Text>
+        
+        }  
+
+         
 
 
         </View>
@@ -83,16 +93,33 @@ export default ListadoCiudades;
 const styles = StyleSheet.create({
 
     view:{
-        width: "96%",
-       
-        marginBottom: 120,
+        width: "100%",
+        marginBottom: 110,
+        justifyContent: 'center',
+        alignItems: 'center',
     }, 
     
     flatList:{
         justifyContent: 'center',
         textAlignVertical: 'center', 
-        
-        
+        width: '100%',
+    },
+
+    emptyText:{
+        width: '85%',
+        //backgroundColor: 'lightgrey',
+        marginTop: 100,
+        paddingVertical: 30,
+        paddingHorizontal: 30,
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderRadius: 20,
+        borderColor: '#700B97',
+        textAlign: 'center',
+        color: 'grey',
+        fontSize: 15,
+
+
     }
 
 })

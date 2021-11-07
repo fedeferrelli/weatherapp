@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, TouchableWithoutFeedback , Image} from 'react-n
 import { Icon } from 'react-native-elements';
 
 const FormatoMuestraCiudades = ({ciudadMostrar, listadoCiudades, setListadoCiudades, almacenarCiudades,
-refresh, setRefresh}) =>{
+}) =>{
 
 
-   const [filtradas, setFiltradas] = useState([])
+
 
 const deleteCiti = ciudad =>{
     const ciudadesFiltradas = listadoCiudades.filter(citi => citi !== ciudad);
@@ -24,26 +24,15 @@ console.log(ciudadMostrar.name)
     return(
         
     <View style = {styles.view} >
+
+
+
+
+
       <TouchableWithoutFeedback  >
         <View style ={styles.conteiner}>
 
- {/*        <Icon
-  name='sc-telegram'
-  type='evilicon'
-  color='#517fa4'
-/> */}    
-{/* 
-<span class="material-icons">
-delete_outline
-</span> */}
-
-
-    {/*     < Icon
-        iconStyle = {styles.delete} 
-        onPress = {() => deleteCiti(ciudadMostrar.name)}
-        type = "material-community"
-        name = "account-circle-outline"
-        /> */} 
+ 
     <View style = {styles.delete}>
         <Icon
         name='delete-forever'

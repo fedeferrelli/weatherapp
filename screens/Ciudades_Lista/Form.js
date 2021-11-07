@@ -118,10 +118,13 @@ const styles = StyleSheet.create({
 
     
 
-    
+        /* #700B97 */
 
      backgroundColor:'#700B97',
-     height: 100,
+     borderColor : '#700B97',
+     //borderWidth: 1,
+     height: 80,
+     marginTop: 0,
      
      justifyContent: 'center',
      alignItems: 'center',
@@ -133,10 +136,8 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         width: '90%',
         justifyContent: 'center',
-     textAlign: 'center',
-     alignItems: 'center',
-
-     
+        textAlign: 'center',
+        alignItems: 'center',
     },
 
     input:{
@@ -149,6 +150,7 @@ const styles = StyleSheet.create({
        paddingHorizontal:10,
        // borderTopLeftRadius: 5,
         borderBottomLeftRadius: 15,
+        borderTopLeftRadius: 15,
 
 
 
@@ -168,7 +170,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '15%',
-        marginLeft: 0,
+        
     },
 
     btnAgregar: {
@@ -181,7 +183,7 @@ const styles = StyleSheet.create({
        
        height: 50,
       borderTopRightRadius: 15,
-       // borderBottomRightRadius: 5,
+       borderBottomRightRadius: 15,
         
     },
     textoCotizar: {
