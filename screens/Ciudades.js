@@ -3,8 +3,8 @@ import 'react-native-gesture-handler';
 import React, {useEffect, useState} from 'react';
 import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Form from './Form';
-import ListadoCiudades from './ListadoCiudades';
+import Form from '../components/Ciudades/Form';
+import ListadoCiudades from '../components/Ciudades/ListadoCiudades';
 
 
 
@@ -68,7 +68,7 @@ console.log(listadoCiudades)
 
       <View style = {styles.app}>
 
-        <StatusBar barStyle = "light-content" backgroundColor='#700B97' />
+       <StatusBar barStyle = "light-content" backgroundColor='#700B97' />
        
         <View style = {styles.view}>
 

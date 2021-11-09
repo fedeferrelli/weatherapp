@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Maps from '../../screens/Maps/Maps';
+import Maps from '../../screens/Maps';
 
 const Stack = createStackNavigator();
 

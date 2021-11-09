@@ -78,6 +78,7 @@ Keyboard.dismiss();
         <View style = {styles.view}>
 
             <View style={styles.form}>
+           
             <TextInput
             placeholder = 'Ingresa una ciudad'
             placeholderTextColor = "rgb(125, 125, 125)"
@@ -96,6 +97,7 @@ Keyboard.dismiss();
                 <Text style={styles.textoCotizar}>+</Text>
             </TouchableHighlight>
             </View>
+
             </View>
 
         </View>
@@ -120,14 +122,18 @@ const styles = StyleSheet.create({
 
         /* #700B97 */
 
-     backgroundColor:'#700B97',
-     borderColor : '#700B97',
+     backgroundColor:'#fff',
+     
      //borderWidth: 1,
      height: 80,
      marginTop: 0,
      
      justifyContent: 'center',
+     textAlign: 'center',
      alignItems: 'center',
+     height:100,
+
+     //backgroundColor: 'lightgrey',
 
     }, 
 
@@ -138,9 +144,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
         alignItems: 'center',
+       
+
+
+
+       // backgroundColor:'grey',
+        
     },
 
     input:{
+        
+
 
         height: 50,
         backgroundColor: "#fff",
@@ -159,9 +173,19 @@ const styles = StyleSheet.create({
         marginRight: 0,
         marginVertical: 20,
 
+      
+        //backgroundColor:'lightgrey',
 
 
+        shadowColor: "#000",
+        shadowOffset: {
+        width: 0,
+	    height: 3,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
 
+        elevation: 10,
 
     }, 
 
@@ -170,6 +194,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '15%',
+
+        
         
     },
 
@@ -184,6 +210,16 @@ const styles = StyleSheet.create({
        height: 50,
       borderTopRightRadius: 15,
        borderBottomRightRadius: 15,
+
+       shadowColor: "#000",
+       shadowOffset: {
+       width: 0,
+       height: 3,
+       },
+       shadowOpacity: 0.27,
+       shadowRadius: 4.65,
+
+       elevation: 10,
         
     },
     textoCotizar: {

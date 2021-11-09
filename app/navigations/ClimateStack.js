@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Climate from '../../screens/Climate/Climate';
+import Climate from '../../screens/Climate';
 
 const Stack = createStackNavigator();
 

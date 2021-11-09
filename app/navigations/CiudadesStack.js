@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Ciudades from '../../screens/Ciudades_Lista/Ciudades';
+import Ciudades from '../../screens/Ciudades';
 
 const Stack = createStackNavigator();
 
