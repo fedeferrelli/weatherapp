@@ -8,7 +8,7 @@ export default function MapsStack(){
     return(
         <Stack.Navigator screenOptions={{
             headerStyle: {
-              backgroundColor: '#700B97', 
+              backgroundColor: '#F0A500', 
             },
 
             headerTintColor: 'white',

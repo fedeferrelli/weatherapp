@@ -32,7 +32,7 @@ const AppStructure = ({ navigation }) =>{
             <Button 
             style = {styles.button}
             title='ir a ciudades'
-            color="#700B97"
+            color="#000"
             accessibilityLabel="Learn more about this purple button"
             onPress = {() => navigation.navigate('ciudades')}
             />
@@ -57,7 +57,7 @@ const AppStructure = ({ navigation }) =>{
             <Button 
             style = {styles.button}
             title='ir a clima'
-            color="#700B97"
+            color="#000"
             accessibilityLabel="Learn more about this purple button"
             onPress = {() => navigation.navigate('climate')}
             />
@@ -81,7 +81,7 @@ const AppStructure = ({ navigation }) =>{
             <Button 
             style = {styles.button}
             title='ir a mapa'
-            color="#700B97"
+            color="#000"
             accessibilityLabel="Learn more about this purple button"
             onPress = {() => navigation.navigate('maps')}
             />
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     card:{
         width: '90%',
         //height: 280,
-        //borderWidth: 1,
+        borderWidth: 1,
       borderColor: 'darkgrey', 
         marginVertical: 20,
         shadowColor: "#000",
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     image:{
         width: '100%',
         height: 90,
+        opacity: 0.7,
     },
 
     title:{
@@ -140,7 +141,8 @@ const styles = StyleSheet.create({
     },
 
     button:{
-        marginTop: 15
+        marginTop: 15,
+        
     }
 
 })

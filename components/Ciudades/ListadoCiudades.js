@@ -47,7 +47,7 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
       }, [listadoCiudades]);
 
 
-   // console.log(numFruits)
+   
     
     return(
         <View style = {styles.view}>

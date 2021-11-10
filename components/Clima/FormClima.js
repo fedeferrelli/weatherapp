@@ -3,56 +3,25 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
     TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
 
-const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades, checkInput, setCheckInput, almacenarCiudades
+const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setListadoClimaCiudades, trigger, setTrigger, setLatitudCiudad, setLongitudCiudad
 }) => {
 
      
 
  // Crear y agregar ciudades
 
- const crearCiudad = async () => {
-
-    if (ciudadInput==="" || !ciudadInput){
-        Alert.alert(
-            'Oops',
-            'Debes ingresar una ciudad',
-            [{text: 'Ok'}]
-          )
-        }
-    else {
+ const latAndLongCiudad = async () => {
 
         const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadInput}&appid=${appikey}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadClimaInput}&appid=${appikey}`;
         
         try {
             const respuesta = await fetch(url);
             const resultado = await respuesta.json();
-            const citi_name = await resultado.name;
-  
-            if(citi_name){
-                if(listadoCiudades.includes(citi_name)){
-                    Alert.alert(
-                        'Oops',
-                        'Parece que la ciudad que ingresaste ya figura en la lista',
-                        [{text: 'Ok'}]
-                    )
-                }
-                else{
-                    const ciudadesNuevas = [... listadoCiudades, citi_name];
-                    console.log(resultado)
-                    console.log(resultado.name)
-                    console.log(resultado.coord.lon)
-                    console.log(resultado.coord.lat)
-                    setListadoCiudades(ciudadesNuevas);
-                    almacenarCiudades(JSON.stringify(ciudadesNuevas));
-                }               
-            } 
-            else { 
-                Alert.alert(
-                'Oops',
-                'Parece que la ciudad que ingresaste no existe. Por favor verifica que esté bien escrita',
-                [{text: 'Ok'}]
-            )};
+            setLatitudCiudad(resultado.coord.lat);
+            setLongitudCiudad(resultado.coord.lon)
+
+
         }
         catch (error){
             Alert.alert(
@@ -61,20 +30,23 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,
             [{text: 'Ok'}]
             )
         }
+
+        setTrigger(true)
     };  
     
     
- }
+ 
 
      
 
       
 const btnAction = () =>{
 //setCheckInput(true);
-crearCiudad();
+latAndLongCiudad();
 Keyboard.dismiss();
 
-}
+};
+
 
     return(
         
@@ -84,10 +56,10 @@ Keyboard.dismiss();
             <View style={styles.form}>
            
             <TextInput
-            placeholder = 'Ingresa una ciudad'
+            placeholder = 'Qué ciudad querés ver?'
             placeholderTextColor = "rgb(125, 125, 125)"
-            defaultValue = {ciudadInput}
-            onChangeText = { ciudad => (setCiudadInput(ciudad))}
+            defaultValue = {ciudadClimaInput}
+            onChangeText = { ciudad => (setCiudadClimaInput(ciudad))}
             
             style = {styles.input}
             />
@@ -98,7 +70,7 @@ Keyboard.dismiss();
                 style={styles.btnAgregar}
                 onPress={ () => btnAction() }
             >
-                <Text style={styles.textoCotizar}>+</Text>
+                <Text style={styles.textoCotizar}>ir</Text>
             </TouchableHighlight>
             </View>
 
@@ -111,7 +83,7 @@ Keyboard.dismiss();
 
 };
 
-export default Form;
+export default FormClima;
 
 const styles = StyleSheet.create({
 
@@ -119,16 +91,6 @@ const styles = StyleSheet.create({
         marginTop: 0,
         marginBottom: 0,
         width: "100%",
-    
-
-
-    
-
-        /* #700B97 */
-
-     backgroundColor:'#fff',
-     
-     //borderWidth: 1,
      height: 80,
      marginTop: 0,
      

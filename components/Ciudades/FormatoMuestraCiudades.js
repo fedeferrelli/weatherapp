@@ -19,7 +19,7 @@ const deleteCiti = ciudad =>{
 
 }
 
-console.log(ciudadMostrar.name)
+//console.log(ciudadMostrar.name)
 
     return(
         

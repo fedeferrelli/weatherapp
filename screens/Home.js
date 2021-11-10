@@ -9,7 +9,7 @@ export default function Home({navigation}){
     return(
        
         <ScrollView >
-             <StatusBar barStyle = "light-content" backgroundColor='#700B97' />
+             <StatusBar barStyle = "light-content" backgroundColor='#F0A500' />
 
         <View style={styles.view}>
             <AppStructure navigation = {navigation}/*  appData = {appData} *//>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
         alignItems: 'center',
         //alignContent: 'center',
-        backgroundColor: 'lightgrey',
+        backgroundColor: 'rgba(125, 125, 125, 0.1)',
        
       
     }, 

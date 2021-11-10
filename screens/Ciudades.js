@@ -8,7 +8,7 @@ import ListadoCiudades from '../components/Ciudades/ListadoCiudades';
 
 
 
-const App = () =>{
+const Ciudades = () =>{
 
   const [ciudadInput, setCiudadInput] = useState();
   const [checkInput, setCheckInput] = useState(false);
@@ -29,21 +29,7 @@ const App = () =>{
         
       }
     }
-     
-
-    
-/* const getAllKeys = async () => {
-  try {
-    await AsyncStorage.removeItem('ciudades')
-  } catch(e) {
-    // remove error
-  }
-
-}
-
-getAllKeys(); */
-
-
+ 
     obtenerCiudadesStorage();
      
   }, []);
@@ -59,7 +45,7 @@ getAllKeys(); */
 }
 
 
-console.log(listadoCiudades)
+//console.log(listadoCiudades)
 
 
   return (
@@ -68,7 +54,7 @@ console.log(listadoCiudades)
 
       <View style = {styles.app}>
 
-       <StatusBar barStyle = "light-content" backgroundColor='#700B97' />
+       <StatusBar barStyle = "light-content" backgroundColor='#F0A500' />
        
         <View style = {styles.view}>
 
@@ -98,6 +84,9 @@ console.log(listadoCiudades)
     //</TouchableWithoutFeedback>
   );
 };
+
+export default Ciudades;
+
 
 const styles = StyleSheet.create({
 
@@ -129,4 +118,3 @@ const styles = StyleSheet.create({
  
 });
 
-export default App;

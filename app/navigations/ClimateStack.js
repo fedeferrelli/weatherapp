@@ -8,7 +8,7 @@ export default function ClimateStack(){
     return(
         <Stack.Navigator screenOptions={{
             headerStyle: {
-              backgroundColor: '#700B97', 
+              backgroundColor: '#F0A500', 
             },
 
             headerTintColor: 'white',
@@ -24,7 +24,7 @@ export default function ClimateStack(){
             <Stack.Screen
                 name="climate"
                 component={Climate}
-                options={{title: "Climate"}}
+                options={{title: "Ver Clima"}}
             />
         </Stack.Navigator>
     );

@@ -20,9 +20,10 @@ export default function Navigation(){
         <NavigationContainer>
             <Tab.Navigator
                 initialRouteName="home"
+                
                 tabBarOptions={{
                     inactiveTintColor:"#646464",
-                    activeTintColor:"#700B97"
+                    activeTintColor:"#F0A500"                  
                 }}
 
                 screenOptions={({ route }) => ({
@@ -32,7 +33,7 @@ export default function Navigation(){
 
                 <Tab.Screen name="home" 
                 component={HomeStack}
-                options={{title: "Home"}}/>
+                options={{title: "Inicio"}}/>
                 
                 <Tab.Screen name="ciudades" 
                 component={CiudadesStack} 
@@ -40,7 +41,7 @@ export default function Navigation(){
                 
                 <Tab.Screen name="climate" 
                 component={ClimateStack} 
-                options={{title: "Climate"}}/>
+                options={{title: "Clima"}}/>
                 
                 <Tab.Screen name="maps" 
                 component={MapsStack} 
