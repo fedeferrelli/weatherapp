@@ -14,6 +14,7 @@ const Climate = () =>{
   const [listadoClimaCiudades, setListadoClimaCiudades] = useState([]);
   const [latitudCiudad, setLatitudCiudad] = useState();
   const [longitudCiudad, setLongitudCiudad] = useState();
+  const [ciudad, setCiudad] = useState();
  
   
 
@@ -56,20 +57,27 @@ const Climate = () =>{
            setListadoClimaCiudades = {setListadoClimaCiudades}
            trigger = {trigger}
            setTrigger = {setTrigger}
+           ciudad = {ciudad}
+           setCiudad = {setCiudad}
            
            setLatitudCiudad = {setLatitudCiudad}
            setLongitudCiudad ={setLongitudCiudad}
            
            />
 
-<ObtenerClima 
+        <ObtenerClima 
            
            latitudCiudad = {latitudCiudad}
            longitudCiudad ={longitudCiudad}
            trigger = {trigger}
            setTrigger = {setTrigger}
+           ciudadClimaInput = {ciudadClimaInput}
+           ciudad = {ciudad}
            
            />
+
+
+
         </View>
 
 

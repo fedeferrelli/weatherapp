@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
     TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
 
-const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setListadoClimaCiudades, trigger, setTrigger, setLatitudCiudad, setLongitudCiudad
+const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, trigger, setTrigger, setLatitudCiudad, setLongitudCiudad
 }) => {
 
      
@@ -20,6 +20,7 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
             const resultado = await respuesta.json();
             setLatitudCiudad(resultado.coord.lat);
             setLongitudCiudad(resultado.coord.lon)
+            setCiudad(resultado.name)
 
 
         }

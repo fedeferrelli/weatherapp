@@ -7,11 +7,30 @@ import ObtenerClima from './ObtenerClima';
 const Current = ({temp, 
     sensacion,
     icono, 
-    condicion}) =>{
+    condicion, date, ciudad}) =>{
 
+        const obtenerFecha = (n) => {
+        
+        const d = new Date(n*1000)
+
+        const weekDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'];
+        const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+       
+        const dayName = weekDays[(d.getDay())]; 
+        const dayNumber = d.getDate();
+        const month = months[d.getMonth()];
+
+        return (`${dayName}, ${dayNumber} de ${month}`)
+      
+    }
 
 
     return(
+        <View>
+            <Text style = {styles.ciudad}>  {ciudad}</Text>
+            <Text style = {styles.fecha}>  {obtenerFecha(date)}</Text>
+
+
         <View style = {styles.view}>
             
             <View style = {styles.leftView}>
@@ -22,16 +41,16 @@ const Current = ({temp,
 
             <View style = {styles.rightView}>
 
+            
+            <View style = {styles.icono}>
             <Image 
             style = {styles.image}
-            source = {{uri:`http://openweathermap.org/img/w/${icono}.png`}}
-
-        />
-            
+            source = {{uri:`http://openweathermap.org/img/w/${icono}.png`}}/>
+            </View>
             
             </View>
         </View>
-        
+        </View>
     )
 
 
@@ -43,6 +62,22 @@ export default Current;
 
 
 const styles = StyleSheet.create({
+
+    ciudad:{
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 0,
+
+    },
+
+    fecha:{
+       // backgroundColor: 'orange',
+        textAlign: 'center',
+        fontSize: 16,
+        fontStyle: 'italic',
+        marginBottom: 20,
+    },
 
   view:{
     flexDirection: 'row',
@@ -88,7 +123,27 @@ sensacion:{
     fontSize: 16,
     marginTop: 0,
 },
- 
+icono: {
+    //backgroundColor: 'white',
+    borderRadius: 100,
+    height: 125,
+    width: 125,
+    justifyContent: 'center',
+    borderColor: '#F0A500',
+    borderWidth: 0.5,
+    backgroundColor: 'lightgrey',
+
+    shadowColor: "#000",
+    shadowOffset: {
+    width: 0,
+    height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+
+    elevation: 0,
+
+},
     image:{
         //paddingHorizontal: 10,
         //width: '20%',
