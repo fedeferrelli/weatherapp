@@ -1,9 +1,18 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Button} from 'react-native';
+import ObtenerClima from './ObtenerClima';
    
 
-const Pronostico = ({
-    daily}) =>{
+const Pronostico = (
+    uno,
+    dos,
+    tres,
+    cuatro,
+    cinco,
+    seis,
+    siete,
+    daily
+    ) =>{
 
         const obtenerFecha = (n) => {
         
@@ -19,24 +28,19 @@ const Pronostico = ({
             return (`${dayName}, ${dayNumber} de ${month}`)
           
         }
-console.log(daily[1].dt)
+
+    
 
     return(
         <View style={styles.view}>
-       {/*      <View style={styles.sides}>
-                <Text style = {styles.ext}>  máxima: {parseInt(max)}º</Text>
-                <Text style = {styles.ext}>  viento: {wind} km/h</Text>
-                <Text style = {styles.ext}>  salida del sol: {obtenerHora(sunrise)} </Text>
+           
+
+            <View>
+                <Text>{daily[0].dt}</Text>
+
+
             </View>
 
-            <View style={styles.sides}>
-               
-                <Text style = {styles.ext}>  mínima: {parseInt(min)}º</Text>
-                <Text style = {styles.ext}>  humedad: {humidity}%</Text>
-                <Text style = {styles.ext}>  puesta del sol: {obtenerHora(sunset)} </Text>      
-            </View> */}
-
-           {/*  <Text>{daily[1].temp.max}</Text> */}
         </View>
     )
 

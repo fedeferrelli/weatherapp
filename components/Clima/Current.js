@@ -27,7 +27,7 @@ const Current = ({temp,
 
     return(
         <View>
-            <Text style = {styles.ciudad}>  {ciudad}</Text>
+           {/*  <Text style = {styles.ciudad}>  {ciudad}</Text> */}
             <Text style = {styles.fecha}>  {obtenerFecha(date)}</Text>
 
 
@@ -129,25 +129,19 @@ icono: {
     height: 125,
     width: 125,
     justifyContent: 'center',
+    textAlign: 'center',
+    alignItems: 'center',
+    textAlignVertical: 'center',
+
     borderColor: '#F0A500',
     borderWidth: 0.5,
     backgroundColor: 'lightgrey',
-
-    shadowColor: "#000",
-    shadowOffset: {
-    width: 0,
-    height: 3,
-    },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
-
-    elevation: 0,
 
 },
     image:{
         //paddingHorizontal: 10,
         //width: '20%',
-        width: 125,
+        width: 110,
         height: 100,
         //backgroundColor: 'red'
     }

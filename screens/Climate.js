@@ -11,6 +11,7 @@ const Climate = () =>{
 
   const [ciudadClimaInput, setCiudadClimaInput] = useState();
   const [trigger, setTrigger] = useState(false);
+  const [showScreen, setShowScreen] = useState(false);
   const [listadoClimaCiudades, setListadoClimaCiudades] = useState([]);
   const [latitudCiudad, setLatitudCiudad] = useState();
   const [longitudCiudad, setLongitudCiudad] = useState();
@@ -59,6 +60,7 @@ const Climate = () =>{
            setTrigger = {setTrigger}
            ciudad = {ciudad}
            setCiudad = {setCiudad}
+           setShowScreen = {setShowScreen}
            
            setLatitudCiudad = {setLatitudCiudad}
            setLongitudCiudad ={setLongitudCiudad}
@@ -73,6 +75,8 @@ const Climate = () =>{
            setTrigger = {setTrigger}
            ciudadClimaInput = {ciudadClimaInput}
            ciudad = {ciudad}
+           showScreen = {showScreen}
+           setShowScreen = {setShowScreen}
            
            />
 

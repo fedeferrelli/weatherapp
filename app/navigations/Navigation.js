@@ -19,7 +19,7 @@ export default function Navigation(){
     return(
         <NavigationContainer>
             <Tab.Navigator
-                initialRouteName="climate"
+                initialRouteName="home"
                 
                 tabBarOptions={{
                     inactiveTintColor:"#646464",

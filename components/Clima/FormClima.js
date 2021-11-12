@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
     TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 
-const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, trigger, setTrigger, setLatitudCiudad, setLongitudCiudad
+const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, trigger, setTrigger, setLatitudCiudad, setLongitudCiudad, setShowScreen
 }) => {
 
      
@@ -13,7 +14,7 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
  const latAndLongCiudad = async () => {
 
         const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadClimaInput}&appid=${appikey}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadClimaInput}&lang=es&appid=${appikey}`;
         
         try {
             const respuesta = await fetch(url);
@@ -32,7 +33,7 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
             )
         }
 
-        setTrigger(true)
+       setTrigger(true)
     };  
     
     
@@ -44,6 +45,7 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
 const btnAction = () =>{
 //setCheckInput(true);
 latAndLongCiudad();
+setShowScreen(true)
 Keyboard.dismiss();
 
 };
@@ -55,15 +57,32 @@ Keyboard.dismiss();
         <View style = {styles.view}>
 
             <View style={styles.form}>
+
+            <View style = {styles.input}>
+            <Picker
+                selectedValue={ciudadClimaInput}
+                onValueChange={ ciudad => (setCiudadClimaInput(ciudad)) }
+                style={{ height: 60 }}
+                /* prompt={"Que ciudad queres ver?"} */
+                dropdownIconColor={'#fff'}
+                dropdownIconRippleColor={'#fff'}
+                
+            >
+                <Picker.Item  label="Que ciudad deseas ver?" value="" style={{ fontSize: 18 }}/> 
+                {listadoClimaCiudades.map( cripto => (
+                    <Picker.Item key={cripto} label={cripto} value={cripto}  style={{ fontSize: 18 }}/> 
+                ))}
+            </Picker>
+            </View>
            
-            <TextInput
+           {/*  <TextInput
             placeholder = 'Qué ciudad querés ver?'
             placeholderTextColor = "rgb(125, 125, 125)"
             defaultValue = {ciudadClimaInput}
             onChangeText = { ciudad => (setCiudadClimaInput(ciudad))}
             
             style = {styles.input}
-            />
+            /> */}
            
             
            <View style={styles.viewbtn}>
@@ -74,6 +93,16 @@ Keyboard.dismiss();
                 <Text style={styles.textoCotizar}>ir</Text>
             </TouchableHighlight>
             </View>
+
+
+
+         
+
+
+
+
+
+
 
             </View>
 
@@ -123,7 +152,7 @@ const styles = StyleSheet.create({
         
 
 
-        height: 50,
+        height: 60,
         backgroundColor: "#fff",
        // borderColor: "#e2e2e2",
        // borderWidth: 1,
@@ -157,7 +186,7 @@ const styles = StyleSheet.create({
     }, 
 
     viewbtn:{
-        height: 50,
+        height: 60,
         alignItems: 'center',
         justifyContent: 'center',
         width: '15%',
@@ -174,7 +203,7 @@ const styles = StyleSheet.create({
 
         width: "100%",
        
-       height: 50,
+       height: 60,
       borderTopRightRadius: 15,
        borderBottomRightRadius: 15,
 
