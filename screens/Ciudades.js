@@ -16,11 +16,16 @@ const Ciudades = () =>{
   const [listadoCiudades, setListadoCiudades] = useState([]);
 
   const [modalVisibleCiudades, setModalVisibleCiudades] = useState(false);
+  const [modalAccion, setModalAccion] = useState();
  
   
 
   useEffect(() => {
+
+    
+
     const obtenerCiudadesStorage = async() =>{
+      setModalVisibleCiudades(true)
       try {
         const ciudadesStorage = await AsyncStorage.getItem('ciudades');
         if (ciudadesStorage){
@@ -59,7 +64,7 @@ const Ciudades = () =>{
 
        <StatusBar barStyle = "light-content" backgroundColor='#F0A500' />
        
-        <View style = {styles.view}>
+        <View style = {styles.viewForm}>
 
            <Form 
            style={styles.form}
@@ -70,29 +75,32 @@ const Ciudades = () =>{
            checkInput = {checkInput}
            setCheckInput = {setCheckInput}
            almacenarCiudades = {almacenarCiudades}
-           modalVisibleCiudades={modalVisibleCiudades}
            setModalVisibleCiudades={setModalVisibleCiudades}
+           setModalAccion={setModalAccion}
            />
         </View>
 
 
-        {<ListadoCiudades 
+        <ListadoCiudades 
         listadoCiudades = {listadoCiudades}
         setListadoCiudades = {setListadoCiudades}
         almacenarCiudades = {almacenarCiudades}
         setModalVisibleCiudades={setModalVisibleCiudades}
         setCiudadInput={setCiudadInput}
+        setModalAccion={setModalAccion}
+        
         
 
         style = {styles.listadoCiudades}
-       />}
+       />
       
 
 
       <Loading 
-modalVisibleCiudades={modalVisibleCiudades}
-setModalVisibleCiudades={setModalVisibleCiudades}
-ciudadInput={ciudadInput}/>
+        modalVisibleCiudades={modalVisibleCiudades}
+        setModalVisibleCiudades={setModalVisibleCiudades}
+        ciudadInput={ciudadInput}
+        modalAccion = {modalAccion}/>
 
 
       </View>  
@@ -107,29 +115,11 @@ const styles = StyleSheet.create({
 
   app:{
     flex: 1,
-    //backgroundColor: "black",
-    //justifyContent: 'space-between',
+ 
     alignItems: 'center',
-    backgroundColor: '#fff',
-    marginTop: -10,
+    marginTop: 0,
+    backgroundColor: 'rgba(125, 125, 125, 0.1)',
   },
 
-  view:{
-    width:"100%",
-    //height: 50,
-  },
-
-  form:{
-    //height: 40
-   //backgroundColor: 'blue'
-  },
- 
-/*  listadoCiudades:{
-
-    width: "100%",
-    marginBottom: 200,
-
-  } */
- 
 });
 

@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
-    TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
+import React from 'react';
+import {View, Text, TextInput, StyleSheet, TouchableHighlight, 
+     Alert, Keyboard} from 'react-native';
 
-const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades, checkInput, setCheckInput, almacenarCiudades, modalVisibleCiudades, setModalVisibleCiudades
+const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,  almacenarCiudades, setModalVisibleCiudades, setModalAccion
 }) => {
 
      
@@ -75,6 +74,9 @@ const btnAction = () =>{
 crearCiudad();
 Keyboard.dismiss();
 setModalVisibleCiudades(true)
+setModalAccion('Guardando datos para')
+//setModalCiudad(ciudadInput)
+/* setModalCiudad('Guardando') */
 
 }
 
@@ -100,7 +102,7 @@ setModalVisibleCiudades(true)
                 style={styles.btnAgregar}
                 onPress={ () => btnAction() }
             >
-                <Text style={styles.textoCotizar}>+</Text>
+                <Text style={styles.textoBoton}>+</Text>
             </TouchableHighlight>
             </View>
 
@@ -118,122 +120,109 @@ export default Form;
 const styles = StyleSheet.create({
 
     view:{
-        marginTop: 0,
-        marginBottom: 0,
-        width: "100%",
-    
-
-
-    
-
-        /* #700B97 */
-
-     backgroundColor:'#fff',
-     
-     //borderWidth: 1,
-     height: 80,
-     marginTop: 0,
-     
-     justifyContent: 'center',
-     textAlign: 'center',
-     alignItems: 'center',
-     height:100,
-
-     //backgroundColor: 'lightgrey',
-
+    marginTop: 0,
+    marginBottom: 0,
+    width: "100%",
+    height: 80,
+    marginTop: 0, 
+    justifyContent: 'center',
+    textAlign: 'center',
+    alignItems: 'center',
+    height:100,
     }, 
 
     form:{
-        flexDirection: "row",
-        flexWrap: "wrap",
-        width: '90%',
-        justifyContent: 'center',
-        textAlign: 'center',
-        alignItems: 'center',
-       
-
-
-
-       // backgroundColor:'grey',
-        
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: '90%',
+    justifyContent: 'center',
+    textAlign: 'center',
+    alignItems: 'center',   
     },
 
-    input:{
-        
+    input:{  
 
+    height: 60,
+    backgroundColor: "#fff",
+    paddingLeft:15,
+    borderBottomLeftRadius: 15,
+    borderTopLeftRadius: 15,
+    fontSize: 18,
+    color: 'black',
+    
+    width:'85%',
+    marginRight: 0,
+    marginVertical: 20,
 
-        height: 50,
-        backgroundColor: "#fff",
-       // borderColor: "#e2e2e2",
-       // borderWidth: 1,
-       //borderRadius: 10,
-       paddingHorizontal:10,
-       // borderTopLeftRadius: 5,
-        borderBottomLeftRadius: 15,
-        borderTopLeftRadius: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+    width: 0,
+    height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
 
-
-
-        
-        width:'85%',
-        marginRight: 0,
-        marginVertical: 20,
-
-      
-        //backgroundColor:'lightgrey',
-
-
-        shadowColor: "#000",
-        shadowOffset: {
-        width: 0,
-	    height: 3,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
-
-        elevation: 10,
-
+    elevation: 10,
     }, 
 
     viewbtn:{
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '15%',
-
-        
-        
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '15%',    
     },
 
     btnAgregar: {
-        backgroundColor: '#C37B89',
-        //padding: 10,
-       justifyContent: 'center',
-       textAlignVertical: 'center',
+    backgroundColor: '#C37B89',
+    justifyContent: 'center',
+    textAlignVertical: 'center',
 
-        width: "100%",
-       
-       height: 50,
-      borderTopRightRadius: 15,
-       borderBottomRightRadius: 15,
+    width: "100%",
+    
+    height: 50,
+    borderTopRightRadius: 15,
+    borderBottomRightRadius: 15,
 
-       shadowColor: "#000",
-       shadowOffset: {
-       width: 0,
-       height: 3,
-       },
-       shadowOpacity: 0.27,
-       shadowRadius: 4.65,
+    shadowColor: "#000",
+    shadowOffset: {
+    width: 0,
+    height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
 
-       elevation: 10,
+    elevation: 10,     
+    
+    
+
+    backgroundColor: '#C37B89',
+
+    justifyContent: 'center',
+    textAlignVertical: 'center',
+
+    width: "100%",
+    
+    height: 60,
+    borderTopRightRadius: 15,
+    borderBottomRightRadius: 15,
+
+    shadowColor: "#000",
+    shadowOffset: {
+    width: 0,
+    height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+
+    elevation: 10,
         
     },
-    textoCotizar: {
-        color: '#FFF',
-        fontSize: 25,
-        textTransform: 'uppercase',
-        textAlign: 'center',
-        
+
+    textoBoton: {
+    color: '#FFF',
+    fontSize: 25,
+    textTransform: 'uppercase',
+    textAlign: 'center',    
     }
 
 })

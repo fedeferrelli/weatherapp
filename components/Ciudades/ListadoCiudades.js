@@ -3,14 +3,14 @@ import { View, Text, StyleSheet, FlatList, Alert} from 'react-native';
 import FormatoMuestraCiudades from './FormatoMuestraCiudades';
 
 
-
-
-const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades, refresh, setRefresh, setModalVisibleCiudades, setCiudadInput}) =>{
+const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades, refresh, setRefresh, setModalVisibleCiudades, setCiudadInput, setModalAccion}) =>{
 
     const [ciudadesData, setCiudadesData] = useState({});
     
 
     useEffect(() => {
+
+        
 
       const mapLoop = async _ => {
            
@@ -64,12 +64,14 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
                                    listadoCiudades = {listadoCiudades}
                                    setListadoCiudades = {setListadoCiudades} 
                                    setRefresh = {setRefresh}
-                                   refresh = {refresh}/>
+                                   refresh = {refresh}
+                                   setModalVisibleCiudades={setModalVisibleCiudades}
+                                   setModalAccion={setModalAccion}
+                                   setCiudadInput = {setCiudadInput}
+                                   />
                                }
                 
-          //     <FormatoMuestraCiudades ciudadMostrar = {ciudad.item} />
-               
-          // )}}
+    
           keyExtractor={ciudad => Math.random()}
 
 
@@ -104,12 +106,11 @@ const styles = StyleSheet.create({
     flatList:{
         justifyContent: 'center',
         textAlignVertical: 'center', 
-        width: '100%',
+        width: '90%',
     },
 
     emptyText:{
         width: '85%',
-        //backgroundColor: 'lightgrey',
         marginTop: 100,
         paddingVertical: 30,
         paddingHorizontal: 30,
@@ -120,8 +121,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'grey',
         fontSize: 15,
-
-
     }
 
 })

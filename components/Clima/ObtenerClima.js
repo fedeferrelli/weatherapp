@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, ScrollView, Text, TextInput, StyleSheet,   Button, TouchableHighlight, 
-    TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
-import {Divider} from 'react-native-elements';
+import {View, ScrollView, Text, StyleSheet, Alert} from 'react-native';
 import Current from './Current';    
 import CurrentExtended from './CurrentExtended';
-import Pronostico from './Pronostico';
 
 const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciudadClimaInput, ciudad, showScreen, setShowScreen, setModalVisible, setSelectValue} ) => {
+
+    
 
     const obtenerFecha = (n) => {
         
@@ -25,7 +23,6 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
     }
 
     
-    const [dataCiudad, setDataCiudad] = useState({});
     const [temp, setTemp] = useState();
     const [sensacion, setSensacion] = useState();
     const [icono, setIcono] = useState();
@@ -73,26 +70,17 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
     const [sieteTempMax, setSieteTempMax] = useState();
     const [sieteTempMin, setSieteTempMin] = useState();
     const [sieteWeather, setSieteWeather] = useState();
-    
 
-    
-
-    
-
-    const [daily, setDaily] = useState({});
     
     
     useEffect(() => {
-
-
-
-
-
-        
     const crearCiudad = async () => {
-
+        
+        
         if (latitudCiudad){
 
+            
+            
     const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitudCiudad}&lon=${longitudCiudad}&units=metric&lang=es&exclude={part}&appid=${appikey}`;
     
@@ -101,7 +89,8 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
             const respuesta = await fetch(url);
             const resultado = await respuesta.json();
            
-           
+    
+            
 
             setTemp(resultado.current.temp)
             setSensacion(resultado.current.feels_like)
@@ -155,14 +144,14 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
             setSieteTempMin(resultado.daily[7].temp.min);
             setSieteWeather(resultado.daily[7].weather[0].description);
 
-            setDaily(resultado.daily)
+            
 
             setModalVisible(false)
             setShowScreen(true)
-            setSelectValue("Que ciudad deseas ver?")
-            
+            setSelectValue("Que ciudad deseas ver?")    
         }
         catch (error){
+            setModalVisible(false)
             Alert.alert(
             'Oops',
             'En este momento no podemos acceder a tu pedido. Por favor intentalo más tarde',
@@ -174,14 +163,7 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
 
 crearCiudad();
 setTrigger(false);
-
-
-     
 }, [trigger]);
-
-
-console.log(dos)
-
 
 
 return(
@@ -321,21 +303,14 @@ return(
     </View>
 
 </View>
-    
-    
 </View>
-
-   
-   
-    </View>
+</View>
     
     
     
 }
     
-
-
-    </ScrollView>
+</ScrollView>
 )
 }
 
@@ -345,81 +320,73 @@ export default ObtenerClima;
 const styles = StyleSheet.create({
 
 
-    pronostico:{
-        width: '90%',
-        height: 65,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        textAlignVertical: 'center',
-        borderColor: '#F0A500',
-        //borderTopWidth: 0.5,
-        borderBottomWidth: 0.5,
-        paddingHorizontal: 10,
-        paddingVertical: 10,
-        
-    },
-    viewPronostico:{
-        marginBottom: 120,
-        marginTop:20,
-    },
-
-    pronText:{
-        width: '60%',
-        textAlign: 'left'
-    },
-
-    pronTextDay:{
-        fontSize:18,
-    },
-
-    pronTextWea:{
-        fontStyle: 'italic'
-    },
-
-    pronTemp:{
-        width: '40%',
-        textAlignVertical: 'center',
-        justifyContent: 'center',
-        
-    },
-
-    pronTempNum:{
-        fontSize: 18,
-        textAlign: 'right',
-    },
-
-  
-
-    view:{
-      
-      
-      alignItems: 'center',
-      //justifyContent: 'center',
-      //textAlign:'center',
-     
-    },
-
-    viewEmptyText:{
-        width: "100%",
-        marginBottom: 110,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }, 
+pronostico:{
+    width: '90%',
+    height: 65,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    textAlignVertical: 'center',
+    borderColor: '#F0A500',
+    borderBottomWidth: 0.5,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
     
+},
 
-    emptyText:{
-        width: '85%',
-        marginTop: 100,
-        paddingVertical: 30,
-        paddingHorizontal: 30,
-        justifyContent: 'center',
-        borderWidth: 1,
-        borderRadius: 20,
-        borderColor: '#700B97',
-        textAlign: 'center',
-        color: 'grey',
-        fontSize: 15,
+viewPronostico:{
+    marginBottom: 120,
+    marginTop:20,
+    },
+
+pronText:{
+    width: '60%',
+    textAlign: 'left'
+},
+
+pronTextDay:{
+    fontSize:18,
+},
+
+pronTextWea:{
+    fontStyle: 'italic'
+},
+
+pronTemp:{
+    width: '40%',
+    textAlignVertical: 'center',
+    justifyContent: 'center',
+    
+},
+
+pronTempNum:{
+    fontSize: 18,
+    textAlign: 'right',
+},
+
+view:{
+    alignItems: 'center',   
+},
+
+viewEmptyText:{
+    width: "100%",
+    marginBottom: 110,
+    justifyContent: 'center',
+    alignItems: 'center',
+}, 
 
 
-    }
+emptyText:{
+    width: '85%',
+    marginTop: 100,
+    paddingVertical: 30,
+    paddingHorizontal: 30,
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 20,
+    borderColor: '#700B97',
+    textAlign: 'center',
+    color: 'grey',
+    fontSize: 15,
+
+}
 })  

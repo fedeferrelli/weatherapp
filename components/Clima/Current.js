@@ -1,8 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, Text, Image, TextInput, StyleSheet, Button, TouchableHighlight, 
-    TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
-import ObtenerClima from './ObtenerClima';    
+import React from 'react';
+import {View, Text, Image, StyleSheet} from 'react-native';
+ 
 
 const Current = ({temp, 
     sensacion,
@@ -26,8 +24,8 @@ const Current = ({temp,
 
 
     return(
-        <View>
-           { <Text style = {styles.ciudad}>  {ciudad}</Text>}
+        <View style ={styles.nombre}>
+            <Text style = {styles.ciudad}>  {ciudad.trim()}</Text>
             <Text style = {styles.fecha}>  {obtenerFecha(date)}</Text>
 
 
@@ -63,33 +61,41 @@ export default Current;
 
 const styles = StyleSheet.create({
 
+    nombre:{
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        width:'90%'
+    },
+
     ciudad:{
         textAlign: 'center',
-        fontSize: 28,
+        padding: 0,
+        fontSize: 22,
+        width:'100%',
         fontWeight: 'bold',
         marginBottom: 0,
-
+        paddingRight: 7.5
     },
 
     fecha:{
-       // backgroundColor: 'orange',
+   
         textAlign: 'center',
         fontSize: 16,
         fontStyle: 'italic',
-        marginBottom: 20,
+        marginBottom: 20, 
+        width:'100%',
+        paddingRight: 7.5
     },
 
   view:{
     flexDirection: 'row',
-    //backgroundColor: 'grey',
     width: '100%',
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
     textAlignVertical: 'center',
-    
-    //flexBasis: 1,
-
   },
 
   leftView:{
@@ -114,7 +120,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 55,
     marginBottom: 0,
-    //backgroundColor: 'orange',
     padding: 0
 },
 
@@ -124,7 +129,6 @@ sensacion:{
     marginTop: 0,
 },
 icono: {
-    //backgroundColor: 'white',
     borderRadius: 100,
     height: 125,
     width: 125,
@@ -139,11 +143,8 @@ icono: {
 
 },
     image:{
-        //paddingHorizontal: 10,
-        //width: '20%',
         width: 110,
         height: 100,
-        //backgroundColor: 'red'
     }
 
 })

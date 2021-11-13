@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, Button} from 'react-native';
-import ObtenerClima from './ObtenerClima';    
+import {View, Text, StyleSheet} from 'react-native';
+  
 
 const CurrentExtended = ({
     max, 
@@ -27,14 +27,14 @@ const CurrentExtended = ({
             <View style={styles.sides}>
                 <Text style = {styles.ext}>  máxima: {parseInt(max)}º</Text>
                 <Text style = {styles.ext}>  viento: {wind} km/h</Text>
-                <Text style = {styles.ext}>  salida del sol: {obtenerHora(sunrise)} </Text>
+                <Text style = {styles.ext}>  sale el sol: {obtenerHora(sunrise)} </Text>
             </View>
 
             <View style={styles.sides}>
                
                 <Text style = {styles.ext}>  mínima: {parseInt(min)}º</Text>
                 <Text style = {styles.ext}>  humedad: {humidity}%</Text>
-                <Text style = {styles.ext}>  puesta del sol: {obtenerHora(sunset)} </Text>      
+                <Text style = {styles.ext}> pone el sol: {obtenerHora(sunset)} </Text>      
             </View>
         </View>
     )
@@ -82,15 +82,13 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
     textAlignVertical: 'center',
-    paddingVertical: 20
-
+    paddingVertical: 20,
  },
 
-ext:{
-   
+ext:{ 
     fontSize: 16,
     marginTop: 0,
     marginVertical:10,
-}
+},
 
 })

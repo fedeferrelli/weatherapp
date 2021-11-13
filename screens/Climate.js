@@ -116,24 +116,15 @@ const styles = StyleSheet.create({
 
   app:{
     flex: 1,
-    //backgroundColor: "black",
-    //justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'rgba(125, 125, 125, 0.1)',
-    marginTop: -10,
+    marginTop: 0,
   },
 
   view:{
     width:"100%",
-    //height: 50,
-  },
-
-  form:{
-    //height: 40
-   //backgroundColor: 'blue'
-  },
- 
-
+    
+  }
  
 });
 

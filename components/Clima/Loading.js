@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Image, Modal, StyleSheet, Text, ActivityIndicator, View } from "react-native";
 
-const Loading = ({modalVisible, setModalVisible, ciudadClimaInput}) => {
+const Loading = ({modalVisible, ciudadClimaInput}) => {
   
   return (
     <View style={styles.centeredView}>
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
-   // backgroundColor: 'rgba(125,125, 125, 0.5)',
   },
+
   modalView: {
     margin: 20,
     backgroundColor: "white",
@@ -62,27 +62,18 @@ const styles = StyleSheet.create({
     width: '90%',
     height: '70%',
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
+
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center"
   },
+  
   modalText: {
-   // marginBottom: 15,
     textAlign: "center",
     fontSize: 18,
   }, 
+  
   modalTextCiti:{
       fontSize: 30,
       fontWeight: 'bold'
