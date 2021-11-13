@@ -5,6 +5,7 @@ import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Stat
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Form from '../components/Ciudades/Form';
 import ListadoCiudades from '../components/Ciudades/ListadoCiudades';
+import Loading from '../components/Ciudades/LoadingCiudades';
 
 
 
@@ -13,6 +14,8 @@ const Ciudades = () =>{
   const [ciudadInput, setCiudadInput] = useState();
   const [checkInput, setCheckInput] = useState(false);
   const [listadoCiudades, setListadoCiudades] = useState([]);
+
+  const [modalVisibleCiudades, setModalVisibleCiudades] = useState(false);
  
   
 
@@ -41,7 +44,7 @@ const Ciudades = () =>{
     } catch (error) {
       console.log(error)       
     };
-    setCiudadInput('');
+    
 }
 
 
@@ -67,6 +70,8 @@ const Ciudades = () =>{
            checkInput = {checkInput}
            setCheckInput = {setCheckInput}
            almacenarCiudades = {almacenarCiudades}
+           modalVisibleCiudades={modalVisibleCiudades}
+           setModalVisibleCiudades={setModalVisibleCiudades}
            />
         </View>
 
@@ -75,11 +80,21 @@ const Ciudades = () =>{
         listadoCiudades = {listadoCiudades}
         setListadoCiudades = {setListadoCiudades}
         almacenarCiudades = {almacenarCiudades}
+        setModalVisibleCiudades={setModalVisibleCiudades}
+        setCiudadInput={setCiudadInput}
         
 
         style = {styles.listadoCiudades}
        />}
       
+
+
+      <Loading 
+modalVisibleCiudades={modalVisibleCiudades}
+setModalVisibleCiudades={setModalVisibleCiudades}
+ciudadInput={ciudadInput}/>
+
+
       </View>  
     //</TouchableWithoutFeedback>
   );

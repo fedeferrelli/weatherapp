@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight, 
     TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
 
-const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades, checkInput, setCheckInput, almacenarCiudades
+const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades, checkInput, setCheckInput, almacenarCiudades, modalVisibleCiudades, setModalVisibleCiudades
 }) => {
 
      
@@ -13,11 +13,13 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,
  const crearCiudad = async () => {
 
     if (ciudadInput==="" || !ciudadInput){
+        setModalVisibleCiudades(false)
         Alert.alert(
             'Oops',
             'Debes ingresar una ciudad',
             [{text: 'Ok'}]
           )
+          
         }
     else {
 
@@ -31,28 +33,30 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,
   
             if(citi_name){
                 if(listadoCiudades.includes(citi_name)){
+                    setModalVisibleCiudades(false)
+
                     Alert.alert(
                         'Oops',
                         'Parece que la ciudad que ingresaste ya figura en la lista',
                         [{text: 'Ok'}]
                     )
+                   
                 }
                 else{
                     const ciudadesNuevas = [... listadoCiudades, citi_name];
-                    console.log(resultado)
-                    console.log(resultado.name)
-                    console.log(resultado.coord.lon)
-                    console.log(resultado.coord.lat)
                     setListadoCiudades(ciudadesNuevas);
                     almacenarCiudades(JSON.stringify(ciudadesNuevas));
                 }               
             } 
             else { 
+                setModalVisibleCiudades(false)
                 Alert.alert(
                 'Oops',
                 'Parece que la ciudad que ingresaste no existe. Por favor verifica que esté bien escrita',
                 [{text: 'Ok'}]
-            )};
+            )
+           
+        };
         }
         catch (error){
             Alert.alert(
@@ -66,13 +70,11 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,
     
  }
 
-     
-
       
 const btnAction = () =>{
-//setCheckInput(true);
 crearCiudad();
 Keyboard.dismiss();
+setModalVisibleCiudades(true)
 
 }
 

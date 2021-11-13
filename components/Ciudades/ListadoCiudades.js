@@ -5,7 +5,7 @@ import FormatoMuestraCiudades from './FormatoMuestraCiudades';
 
 
 
-const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades, refresh, setRefresh}) =>{
+const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades, refresh, setRefresh, setModalVisibleCiudades, setCiudadInput}) =>{
 
     const [ciudadesData, setCiudadesData] = useState({});
     
@@ -15,7 +15,7 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
       const mapLoop = async _ => {
            
           
-            const promises = listadoCiudades.map(async citi => {
+            const promises = listadoCiudades.sort().map(async citi => {
                 const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
                 const url = `https://api.openweathermap.org/data/2.5/weather?q=${citi}&appid=${appikey}`;
                
@@ -36,6 +36,8 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
           
             const ciudadesPromesas = await Promise.all(promises);
            setCiudadesData(ciudadesPromesas);
+           setModalVisibleCiudades(false)
+           setCiudadInput('');
           
 
         };

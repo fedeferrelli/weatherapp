@@ -27,7 +27,7 @@ const Current = ({temp,
 
     return(
         <View>
-           {/*  <Text style = {styles.ciudad}>  {ciudad}</Text> */}
+           { <Text style = {styles.ciudad}>  {ciudad}</Text>}
             <Text style = {styles.fecha}>  {obtenerFecha(date)}</Text>
 
 
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 
     ciudad:{
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 28,
         fontWeight: 'bold',
         marginBottom: 0,
 

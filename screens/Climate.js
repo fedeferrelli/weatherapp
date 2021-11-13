@@ -5,6 +5,7 @@ import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, Stat
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FormClima from '../components/Clima/FormClima';
 import ObtenerClima from '../components/Clima/ObtenerClima';
+import Loading from '../components/Clima/Loading';
 
 
 const Climate = () =>{
@@ -16,6 +17,12 @@ const Climate = () =>{
   const [latitudCiudad, setLatitudCiudad] = useState();
   const [longitudCiudad, setLongitudCiudad] = useState();
   const [ciudad, setCiudad] = useState();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [selectValue, setSelectValue] = useState("Que ciudad deseas ver?")
+
+  
  
   
 
@@ -24,7 +31,8 @@ const Climate = () =>{
       try {
         const ciudadesStorage = await AsyncStorage.getItem('ciudades');
         if (ciudadesStorage){
-        setListadoClimaCiudades(JSON.parse(ciudadesStorage))
+        setListadoClimaCiudades(JSON.parse(ciudadesStorage).sort())
+        //setListadoClimaCiudades(sort(listadoClimaCiudades))
         }
       } catch (error) {
 
@@ -56,7 +64,7 @@ const Climate = () =>{
            setCiudadClimaInput = {setCiudadClimaInput}
            listadoClimaCiudades = {listadoClimaCiudades}
            setListadoClimaCiudades = {setListadoClimaCiudades}
-           trigger = {trigger}
+           
            setTrigger = {setTrigger}
            ciudad = {ciudad}
            setCiudad = {setCiudad}
@@ -64,6 +72,11 @@ const Climate = () =>{
            
            setLatitudCiudad = {setLatitudCiudad}
            setLongitudCiudad ={setLongitudCiudad}
+
+           setModalVisible = {setModalVisible}
+           selectValue ={selectValue}
+           setSelectValue={setSelectValue}
+
            
            />
 
@@ -77,6 +90,8 @@ const Climate = () =>{
            ciudad = {ciudad}
            showScreen = {showScreen}
            setShowScreen = {setShowScreen}
+           setModalVisible = {setModalVisible}
+           setSelectValue = {setSelectValue}
            
            />
 
@@ -85,6 +100,9 @@ const Climate = () =>{
         </View>
 
 
+<Loading 
+modalVisible={modalVisible}
+ciudadClimaInput = {ciudadClimaInput}/>
         
       
       </View>  

@@ -7,7 +7,7 @@ import Current from './Current';
 import CurrentExtended from './CurrentExtended';
 import Pronostico from './Pronostico';
 
-const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciudadClimaInput, ciudad, showScreen, setShowScreen} ) => {
+const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciudadClimaInput, ciudad, showScreen, setShowScreen, setModalVisible, setSelectValue} ) => {
 
     const obtenerFecha = (n) => {
         
@@ -73,6 +73,9 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
     const [sieteTempMax, setSieteTempMax] = useState();
     const [sieteTempMin, setSieteTempMin] = useState();
     const [sieteWeather, setSieteWeather] = useState();
+    
+
+    
 
     
 
@@ -153,6 +156,10 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
             setSieteWeather(resultado.daily[7].weather[0].description);
 
             setDaily(resultado.daily)
+
+            setModalVisible(false)
+            setShowScreen(true)
+            setSelectValue("Que ciudad deseas ver?")
             
         }
         catch (error){
@@ -197,7 +204,7 @@ return(
 
     :
     
-<View style={styles.view}>
+<View style={styles.view} >
     <Current 
     
     temp = {temp}

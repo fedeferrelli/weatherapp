@@ -4,9 +4,10 @@ import {View, Text, TextInput, StyleSheet, Button, TouchableHighlight,
     TouchableWithoutFeedback, Alert, Keyboard} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, trigger, setTrigger, setLatitudCiudad, setLongitudCiudad, setShowScreen
+const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, setTrigger, setLatitudCiudad, setLongitudCiudad, setModalVisible, setSelectValue, selectValue
 }) => {
 
+    
      
 
  // Crear y agregar ciudades
@@ -38,16 +39,22 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
     
     
  
-
+const saveCiudad = (ciudad) =>{
+    setCiudadClimaInput(ciudad)
+    setSelectValue(ciudad)
+    
+    
+    };
      
 
       
 const btnAction = () =>{
-//setCheckInput(true);
-latAndLongCiudad();
-setShowScreen(true)
-Keyboard.dismiss();
 
+latAndLongCiudad();
+
+Keyboard.dismiss();
+setModalVisible(true)
+//setShowScreen(false)
 };
 
 
@@ -58,21 +65,29 @@ Keyboard.dismiss();
 
             <View style={styles.form}>
 
-            <View style = {styles.input}>
+            <View style = {styles.input}
+           //onPress={setFresh(!fresh)}
+            >
+
+
             <Picker
-                selectedValue={ciudadClimaInput}
-                onValueChange={ ciudad => (setCiudadClimaInput(ciudad)) }
+                selectedValue={selectValue}
+                onValueChange={ ciudad => (saveCiudad(ciudad)) }
                 style={{ height: 60 }}
-                /* prompt={"Que ciudad queres ver?"} */
                 dropdownIconColor={'#fff'}
-                dropdownIconRippleColor={'#fff'}
+                dropdowniconripplecolor={'#fff'}
+               
                 
             >
+               
+               
                 <Picker.Item  label="Que ciudad deseas ver?" value="" style={{ fontSize: 18 }}/> 
                 {listadoClimaCiudades.map( cripto => (
                     <Picker.Item key={cripto} label={cripto} value={cripto}  style={{ fontSize: 18 }}/> 
                 ))}
             </Picker>
+
+
             </View>
            
            {/*  <TextInput
