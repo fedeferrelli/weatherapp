@@ -37,7 +37,8 @@ export default function Navigation(){
                 
                 <Tab.Screen name="ciudades" 
                 component={CiudadesStack} 
-                options={{title: "Ciudades"}}/>
+                options={{title: "Ciudades"}}
+                />
                 
                 <Tab.Screen name="climate" 
                 component={ClimateStack} 

@@ -15,21 +15,26 @@ const Ciudades = () =>{
   const [checkInput, setCheckInput] = useState(false);
   const [listadoCiudades, setListadoCiudades] = useState([]);
 
-  const [modalVisibleCiudades, setModalVisibleCiudades] = useState(false);
+  const [modalVisibleCiudades, setModalVisibleCiudades] = useState(true);
   const [modalAccion, setModalAccion] = useState();
  
   
 
   useEffect(() => {
-
-    
+   
+   
 
     const obtenerCiudadesStorage = async() =>{
-      setModalVisibleCiudades(true)
+     
+      
+      
       try {
         const ciudadesStorage = await AsyncStorage.getItem('ciudades');
         if (ciudadesStorage){
         setListadoCiudades(JSON.parse(ciudadesStorage))
+        setModalVisibleCiudades(true)
+        setModalAccion('Cargando los datos de tus')
+        setCiudadInput('Ciudades listadas')
         }
       } catch (error) {
 
@@ -49,6 +54,8 @@ const Ciudades = () =>{
     } catch (error) {
       console.log(error)       
     };
+
+   
     
 }
 

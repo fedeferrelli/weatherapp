@@ -5,7 +5,7 @@ import { Image, Modal, StyleSheet, Text, ActivityIndicator, View } from "react-n
 const Loading = ({modalVisibleCiudades, modalCiudad, modalAccion, ciudadInput}) => {
   
   return (
-    <View style={styles.centeredView}>
+    <View >
       <Modal
         animationType="fade"
         transparent={true}
@@ -23,7 +23,7 @@ const Loading = ({modalVisibleCiudades, modalCiudad, modalAccion, ciudadInput}) 
 
             <Text style={styles.modalTextCiti}>{ciudadInput}</Text>
 
-            <ActivityIndicator size = "large" color="#F0A500" style = {styles.spin} />
+            <ActivityIndicator size = "large" color="black" style = {styles.spinner} />
              
            
           </View>
@@ -39,15 +39,18 @@ export default Loading;
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-   
+    height: '100%',   
+    width: '100%',
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
+    backgroundColor: 'rgba(125, 125, 125, 0.65)',
+    marginTop: 55,
   },
 
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: "#F0A500",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -79,7 +82,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
   },
 
-  spin:{
+  spinner:{
   marginVertical:20,
   },
 

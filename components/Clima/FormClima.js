@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableHighlight, Alert, Keyboard} from 'react-native';
+import {View, Text, StyleSheet, TouchableWithoutFeedback, TouchableHighlight, Alert, Keyboard} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, setTrigger, setLatitudCiudad, setLongitudCiudad, setModalVisible, setSelectValue, selectValue
+const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, setTrigger, setLatitudCiudad, setLongitudCiudad, setModalVisible, setSelectValue, selectValue, setReload, reload
 }) => {
 
 
@@ -40,6 +40,8 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
     
  
 const saveCiudad = (ciudad) =>{
+    setReload(!reload)
+
     setCiudadClimaInput(ciudad)
     setSelectValue(ciudad)    
     };
@@ -47,6 +49,7 @@ const saveCiudad = (ciudad) =>{
 
       
 const btnAction = () =>{
+   
 
 latAndLongCiudad();
 Keyboard.dismiss();
@@ -54,53 +57,73 @@ setModalVisible(true)
 
 };
 
-
+console.log(reload)
     return(
         
-        
+
+
         <View style = {styles.view}>
 
-            <View style={styles.form}>
-
-            <View style = {styles.input}>
 
 
-            <Picker
-                selectedValue={selectValue}
-                onValueChange={ ciudad => (saveCiudad(ciudad)) }
-                style={{ height: 60 }}
-                dropdownIconColor={'#fff'}
-                dropdowniconripplecolor={'#fff'}
-               
+
+                        
+    
+
+    
+
+
+                <View style={styles.form}>
+
                 
-            >
-               
-               
-                <Picker.Item  label="Que ciudad deseas ver?" value="" style={{color: 'rgb(125, 125, 125)', width: '100%', fontSize: 18 }}/> 
-                {listadoClimaCiudades.map( cripto => (
-                    <Picker.Item key={cripto} label={cripto} value={cripto}  style={{ fontSize: 18 }}/> 
-                ))}
-            </Picker>
-
-
-            </View>
           
-            
-           <View style={styles.viewbtn}>
-            <TouchableHighlight
-                style={styles.btnAgregar}
-                onPress={ () => btnAction() }
-            >
-                <Text style={styles.textoBoton}>ir</Text>
-            </TouchableHighlight>
-            </View>
+
+           {/* <TouchableHighlight onPress={() => setReload(!reload)} style={styles.reload}> */}
+
+                    <View style = {styles.input}>
+
+                   
+                        <Picker
+                            selectedValue={selectValue}
+                            onValueChange={ ciudad => (saveCiudad(ciudad)) }
+                            style={{ height: 60 }}
+                            dropdownIconColor={'#fff'}
+                            dropdowniconripplecolor={'#fff'}
+                                           
+                        >
+                
+               
+
+                        <Picker.Item  label="Que ciudad deseas ver?" value="" style={{color: 'rgb(125, 125, 125)', width: '100%', fontSize: 18 }}/> 
+                        {listadoClimaCiudades.map( cripto => (
+                            
+                            <Picker.Item key={cripto} label={cripto} value={cripto}  style={{ fontSize: 18 }}/> 
+                            
+
+                        ))}
 
 
-            </View>
+                        </Picker>
+                      
+                        
+                    </View>
+                    {/* </TouchableHighlight> */}
+                
+                    <View style={styles.viewbtn}>
+                        <TouchableHighlight
+                            style={styles.btnAgregar}
+                            onPress={ () => btnAction() }
+                        >
+                            <Text style={styles.textoBoton}>ir</Text>
+                        </TouchableHighlight>
+                    </View>
 
+
+                </View>
+               
         </View>
-        
-       
+      
+      
     )
 
 };
@@ -108,6 +131,12 @@ setModalVisible(true)
 export default FormClima;
 
 const styles = StyleSheet.create({
+
+    reload:{
+       backgroundColor: 'black',
+        width: 250,
+       // height: 250 
+    },
 
     view:{
 

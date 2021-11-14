@@ -22,7 +22,7 @@ const Climate = () =>{
 
   const [selectValue, setSelectValue] = useState("Que ciudad deseas ver?")
 
-  
+  const [reload, setReload] = useState(false)
  
   
 
@@ -43,7 +43,7 @@ const Climate = () =>{
  
     obtenerCiudadesStorage();
      
-  }, []);
+  }, [reload]);
 
 
 
@@ -76,6 +76,8 @@ const Climate = () =>{
            setModalVisible = {setModalVisible}
            selectValue ={selectValue}
            setSelectValue={setSelectValue}
+           setReload={setReload}
+           reload={reload}
 
            
            />

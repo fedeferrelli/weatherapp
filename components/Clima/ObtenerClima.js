@@ -3,6 +3,7 @@ import {View, ScrollView, Text, StyleSheet, Alert} from 'react-native';
 import Current from './Current';    
 import CurrentExtended from './CurrentExtended';
 
+
 const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciudadClimaInput, ciudad, showScreen, setShowScreen, setModalVisible, setSelectValue} ) => {
 
     
@@ -383,7 +384,7 @@ emptyText:{
     justifyContent: 'center',
     borderWidth: 1,
     borderRadius: 20,
-    borderColor: '#700B97',
+    borderColor: '#F0A500',
     textAlign: 'center',
     color: 'grey',
     fontSize: 15,

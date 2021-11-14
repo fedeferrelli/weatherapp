@@ -75,9 +75,6 @@ crearCiudad();
 Keyboard.dismiss();
 setModalVisibleCiudades(true)
 setModalAccion('Guardando datos para')
-//setModalCiudad(ciudadInput)
-/* setModalCiudad('Guardando') */
-
 }
 
     return(
@@ -88,7 +85,7 @@ setModalAccion('Guardando datos para')
             <View style={styles.form}>
            
             <TextInput
-            placeholder = 'Ingresa una ciudad'
+            placeholder = 'Agrega una ciudad al listado'
             placeholderTextColor = "rgb(125, 125, 125)"
             defaultValue = {ciudadInput}
             onChangeText = { ciudad => (setCiudadInput(ciudad))}
