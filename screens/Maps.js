@@ -1,14 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+import Mapping from "../components/Maps/Mapping";
+
 export default function Maps(){
     return(
-        <View style={styles.view}>
-            <Text style={styles.emptyText}>
-             MAPS {'\n\n'}
-            La sección de Maps deberá mostrar las ciudaes ingresadas en un mapa
-            </Text>
-        </View>
+        <Mapping />
     );
 };
 
