@@ -15,7 +15,8 @@ const CurrentExtended = ({
         const d = new Date(n*1000)
 
         const hour = d.getHours();
-        const minutes = d.getMinutes();
+        const minutes = `${("0"+d.getMinutes()).slice(-2)}`
+
 
         return (`${hour}:${minutes}`)
       

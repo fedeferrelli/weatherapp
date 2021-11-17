@@ -12,12 +12,14 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,
  const crearCiudad = async () => {
 
     if (ciudadInput==="" || !ciudadInput){
-        setModalVisibleCiudades(false)
+        
         Alert.alert(
             'Oops',
             'Debes ingresar una ciudad',
             [{text: 'Ok'}]
           )
+
+          setModalVisibleCiudades(false)
           
         }
     else {
@@ -71,9 +73,9 @@ const Form = ({ciudadInput, setCiudadInput, listadoCiudades, setListadoCiudades,
 
       
 const btnAction = () =>{
+setModalVisibleCiudades(true)
 crearCiudad();
 Keyboard.dismiss();
-setModalVisibleCiudades(true)
 setModalAccion('Guardando datos para')
 }
 

@@ -11,7 +11,7 @@ import Loading from '../components/Ciudades/LoadingCiudades';
 
 const Ciudades = () =>{
 
-  const [ciudadInput, setCiudadInput] = useState();
+  const [ciudadInput, setCiudadInput] = useState("");
   const [checkInput, setCheckInput] = useState(false);
   const [listadoCiudades, setListadoCiudades] = useState([]);
 

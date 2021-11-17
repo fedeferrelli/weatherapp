@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableWithoutFeedback, TouchableHighlight, Alert, Keyboard} from 'react-native';
+import {View, Text, StyleSheet, TouchableWithoutFeedback, TouchableHighlight, Alert, Keyboard, Pressable} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
 const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, setTrigger, setLatitudCiudad, setLongitudCiudad, setModalVisible, setSelectValue, selectValue, setReload, reload
@@ -40,55 +40,43 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
     
  
 const saveCiudad = (ciudad) =>{
-    setReload(!reload)
-
     setCiudadClimaInput(ciudad)
-    setSelectValue(ciudad)    
+    setSelectValue(ciudad)   
     };
      
 
       
 const btnAction = () =>{
-   
-
-latAndLongCiudad();
-Keyboard.dismiss();
-setModalVisible(true)
+    latAndLongCiudad();
+    Keyboard.dismiss();
+    setModalVisible(true)
 
 };
 
-console.log(reload)
-    return(
-        
 
+const reloadPickerList = () =>{
+    setReload(!reload)
+    
+    };
+
+    return(
 
         <View style = {styles.view}>
 
-
-
-
-                        
-    
-
-    
-
-
                 <View style={styles.form}>
-
-                
-          
-
-           {/* <TouchableHighlight onPress={() => setReload(!reload)} style={styles.reload}> */}
 
                     <View style = {styles.input}>
 
                    
+
+                   
                         <Picker
-                            selectedValue={selectValue}
+                            selectedValue={ selectValue}
                             onValueChange={ ciudad => (saveCiudad(ciudad)) }
                             style={{ height: 60 }}
                             dropdownIconColor={'#fff'}
                             dropdowniconripplecolor={'#fff'}
+                            onFocus={() => reloadPickerList()}
                                            
                         >
                 
@@ -107,7 +95,7 @@ console.log(reload)
                       
                         
                     </View>
-                    {/* </TouchableHighlight> */}
+                
                 
                     <View style={styles.viewbtn}>
                         <TouchableHighlight
@@ -122,6 +110,8 @@ console.log(reload)
                 </View>
                
         </View>
+
+        
       
       
     )
@@ -135,7 +125,9 @@ const styles = StyleSheet.create({
     reload:{
        backgroundColor: 'black',
         width: 250,
-       // height: 250 
+
+        height: 60,
+        position: 'absolute' 
     },
 
     view:{
@@ -181,6 +173,8 @@ const styles = StyleSheet.create({
         shadowRadius: 4.65,
 
         elevation: 10,
+
+
 
     }, 
 
