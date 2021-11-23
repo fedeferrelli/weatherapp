@@ -10,7 +10,7 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
 
  const latAndLongCiudad = async () => {
 
-        const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
+        const appikey = 'ba1cc65b03d369778c8ef79d62d52ffd';
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadClimaInput}&lang=es&appid=${appikey}`;
 
         

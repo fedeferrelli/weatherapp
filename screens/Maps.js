@@ -1,11 +1,40 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import Mapping from "../components/Maps/Mapping";
+import LoadingMapas from '../components/Maps/LoadingMapas';
 
-export default function Maps(){
+export default function Maps({route}){
+
+  /*  const [listadoCiudadesMaps, setListadoCiudadesMaps] = useState([]);
+   const [ciudadesDataMaps, setCiudadesDataMaps] = useState([])  
+   const [trigger, setTrigger] = useState(null)
+   
+   const [modalAccion, setModalAccion] = useState(); */
+
+   
+
+   const [modalVisibleMapas, setModalVisibleMapas] = useState(false);
+   const [ciudad, setCiudad] = useState(route.params);
+
+
+     
+
     return(
-        <Mapping />
+      <>
+      <LoadingMapas
+      modalVisibleMapas={modalVisibleMapas}
+      setModalVisibleMapas={setModalVisibleMapas}
+      ciudad={ciudad}
+     
+      />
+
+        <Mapping 
+        ciudad={ciudad}
+        setModalVisibleMapas={setModalVisibleMapas}
+        />
+
+      </>
     );
 };
 

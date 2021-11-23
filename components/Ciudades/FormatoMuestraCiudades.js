@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Image} from 'react-native';
 import { Icon } from 'react-native-elements';
 
-const FormatoMuestraCiudades = ({ciudadMostrar, listadoCiudades, setListadoCiudades, almacenarCiudades, setModalVisibleCiudades, setModalAccion, setCiudadInput
+const FormatoMuestraCiudades = ({ciudadMostrar, listadoCiudades, setListadoCiudades, almacenarCiudades, setModalVisibleCiudades, setModalAccion, setCiudadInput, navigation, route
 }) =>{
+
 
 
 const deleteCiti = ciudad =>{
@@ -26,7 +27,7 @@ const deleteCiti = ciudad =>{
     return(
         
     <View style = {styles.view} >
-
+ 
         <View style ={styles.conteiner}>
             
             <View style = {styles.delete}>
@@ -34,16 +35,21 @@ const deleteCiti = ciudad =>{
                 name='delete-forever'
                 type = "material-community"
                 iconStyle = {{color:'grey', fontSize: 20}}
-                onPress = {() => deleteCiti(ciudadMostrar.name)}/>  
+                onPress = {() => deleteCiti(ciudadMostrar.name)}
+                
+                />  
             </View> 
          
 
-            <Text style = {styles.text}>
+            <Text style = {styles.text}
+            onPress = {() => navigation.navigate('mapas', ciudadMostrar.name)}
+            >
                 {ciudadMostrar.name}
+                
             </Text>
 
             <Text style = {styles.temp}>
-                {parseInt(ciudadMostrar.main.temp - 273.15)}
+                {Math.round(ciudadMostrar.main.temp)}
                 <Text>
                     &#x2103;
                 </Text>

@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from '../../screens/Home';
@@ -23,7 +24,7 @@ export default function HomeStack(){
           }}>
               
             <Stack.Screen
-                name="home"
+                name="Home"
                 component={Home}
                 options={{title: "Inicio"}}
             />

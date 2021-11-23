@@ -9,7 +9,7 @@ import Loading from '../components/Ciudades/LoadingCiudades';
 
 
 
-const Ciudades = () =>{
+const Ciudades = ({navigation}) =>{
 
   const [ciudadInput, setCiudadInput] = useState("");
   const [checkInput, setCheckInput] = useState(false);
@@ -95,9 +95,8 @@ const Ciudades = () =>{
         setModalVisibleCiudades={setModalVisibleCiudades}
         setCiudadInput={setCiudadInput}
         setModalAccion={setModalAccion}
-        
-        
-
+        navigation={navigation}
+ 
         style = {styles.listadoCiudades}
        />
       

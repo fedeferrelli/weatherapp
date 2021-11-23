@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Climate from '../../screens/Climate';
@@ -22,7 +23,7 @@ export default function ClimateStack(){
           }}>
               
             <Stack.Screen
-                name="climate"
+                name="Climate"
                 component={Climate}
                 options={{title: "Ver Clima"}}
             />

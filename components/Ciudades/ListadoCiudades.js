@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, Alert} from 'react-native';
 import FormatoMuestraCiudades from './FormatoMuestraCiudades';
 
 
-const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades, refresh, setRefresh, setModalVisibleCiudades, setCiudadInput, setModalAccion}) =>{
+const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades, refresh, setRefresh, setModalVisibleCiudades, setCiudadInput, setModalAccion, navigation}) =>{
 
     const [ciudadesData, setCiudadesData] = useState({});
     
@@ -16,8 +16,8 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
            
           
             const promises = listadoCiudades.sort().map(async citi => {
-                const appikey = '845ebd863db0aaaf1a949f55e0e7f977';
-                const url = `https://api.openweathermap.org/data/2.5/weather?q=${citi}&appid=${appikey}`;
+                const appikey = 'ba1cc65b03d369778c8ef79d62d52ffd';
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${citi}&units=metric&appid=${appikey}`;
                
                 try {
                     const respuesta = await fetch(url);
@@ -68,6 +68,8 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
                                    setModalVisibleCiudades={setModalVisibleCiudades}
                                    setModalAccion={setModalAccion}
                                    setCiudadInput = {setCiudadInput}
+                                   navigation={navigation}
+                                  
                                    />
                                }
                 

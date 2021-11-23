@@ -1,8 +1,5 @@
 import React from 'react';
 import {View, Text, Button, Image, StyleSheet} from 'react-native';
-import Navigation from '../../app/navigations/Navigation';
-import { NavigationContainer } from "@react-navigation/native";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs" ;
 
 
 
@@ -34,7 +31,7 @@ const AppStructure = ({ navigation }) =>{
             title='ir a ciudades'
             color="#000"
             accessibilityLabel="Learn more about this purple button"
-            onPress = {() => navigation.navigate('ciudades')}
+           onPress = {() => navigation.navigate('ciudades')}
             />
 
         </View>
@@ -59,37 +56,12 @@ const AppStructure = ({ navigation }) =>{
             title='ir a clima'
             color="#000"
             accessibilityLabel="Learn more about this purple button"
-            onPress = {() => navigation.navigate('climate')}
+           onPress = {() => navigation.navigate('climate')}
             />
 
         </View>
 
-        <View style = {styles.card}>
-
-            <Image 
-            style={styles.image}
-            source={require('../../assets/images/maps2.png')} />
-
-            <Text style={styles.title}>
-                Mapa
-            </Text>
-
-            <Text style={styles.text}>
-            Vas a poder mirar en un mapa las ciudades que incorporaste.
-            </Text>
-
-            <Button 
-            style = {styles.button}
-            title='ir a mapa'
-            color="#000"
-            accessibilityLabel="Learn more about this purple button"
-            onPress = {() => navigation.navigate('maps')}
-            />
-
-        </View>
-
-
-
+        
 
         </>
         

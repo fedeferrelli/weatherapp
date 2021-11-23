@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs" ;
 import HomeStack from './HomeStack';
 import CiudadesStack from './CiudadesStack';
 import ClimateStack from './ClimateStack';
-import MapsStack from './MapsStack';
+
 
 
 import { Icon } from "react-native-elements/dist/icons/Icon";
@@ -43,10 +43,7 @@ export default function Navigation(){
                 <Tab.Screen name="climate" 
                 component={ClimateStack} 
                 options={{title: "Clima"}}/>
-                
-                <Tab.Screen name="maps" 
-                component={MapsStack} 
-                options={{title: "Mapas"}}/>
+
                 
 
             </Tab.Navigator>
