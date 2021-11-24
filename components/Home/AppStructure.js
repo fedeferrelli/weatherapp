@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Button, Image, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import { Button } from 'react-native-elements';
 
 
 
@@ -9,61 +10,71 @@ const AppStructure = ({ navigation }) =>{
 
     return(
 
-        <>
-        <View style = {styles.card}>
+        <View style={styles.view}>
+        
+            <View style={styles.bienvenida}>
+            
+                <Text style={styles.bienvenida_uno}>
 
-            <Image 
-            style={styles.image}
-            source={require('../../assets/images/nombres_ciudades.jpg')} />
+                    Hola Paula!
 
-            <Text style={styles.title}>
-                Ciudades
-            </Text>
+                </Text>
 
-            <Text style={styles.text}>
-            Podrás agregar (y eliminar) las ciudades que quieras incorporar al seguimiento. 
-            {'\n\n'}
-            Las verás reflejadas en forma de lista con un resumen de la temperatura y condiciones climáticas del momento.         
-            </Text>
+                <Text style={styles.bienvenida_dos}>
 
-            <Button 
-            style = {styles.button}
-            title='ir a ciudades'
-            color="#000"
-            accessibilityLabel="Learn more about this purple button"
-           onPress = {() => navigation.navigate('ciudades')}
-            />
+                    Bienvenida a tu aplicación para conocer el clima
 
-        </View>
+                </Text>
 
 
-        <View style = {styles.card}>
 
-            <Image 
-            style={styles.image}
-            source={require('../../assets/images/clima2.jpg')} />
+            </View>
 
-            <Text style={styles.title}>
-                Clima
-            </Text>
+   
 
-            <Text style={styles.text}>
-            Desde esta pantalla vas a poder elegir alguna de las ciudades que incorporaste y ver su clima actual y pronóstico en detalle.
-            </Text>
 
-            <Button 
-            style = {styles.button}
-            title='ir a clima'
-            color="#000"
-            accessibilityLabel="Learn more about this purple button"
-           onPress = {() => navigation.navigate('climate')}
-            />
+            <View style = {styles.card}>
 
-        </View>
+                <Text style={styles.text}>
+                Podes guardar un listado de las ciudades que quieras para conocer su temperatura y clima actual.
+                {'\n\n'}
+                También podrás verlas en un mapa.          
+                </Text>
+
+                <Button 
+                
+                title='ir a ciudades'
+                containerStyle={{width: 150}}
+                buttonStyle = {{backgroundColor: "lightgrey", borderWidth: 1,  borderColor: "#F0A500" }}
+                titleStyle= {{color: "#F0A500"}}
+                onPress = {() => navigation.navigate('ciudades')}
+                />
+
+            </View>
+
+
+            <View style = {styles.card}>
+
+
+                <Text style={styles.text}>
+                Además, de cada una de las ciudades listadas se puede acceder a un detalle de las condiciones climáticas actuales y el pronóstico extendido a una semana.
+                </Text>
+
+                <Button 
+                
+                title='ir a clima'
+                containerStyle={{width: 150}}
+                buttonStyle = {{backgroundColor: "lightgrey", borderWidth: 1,  borderColor: "#F0A500" }}
+                titleStyle= {{color: "#F0A500"}}
+                
+                onPress = {() => navigation.navigate('climate')}
+                />
+
+            </View>
 
         
 
-        </>
+        </View>
         
     )
 };
@@ -72,49 +83,74 @@ export default AppStructure;
 
 const styles = StyleSheet.create({
 
+
+    view:{
+        flex: 1,
+        
+        alignItems: 'center',
+       
+        marginTop: 0,
+      
+      },
+
+    bienvenida:{
+        width: '90%',
+        marginVertical: 20,
+    
+    },
+
+    bienvenida_uno:{
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
+
+    bienvenida_dos:{
+        fontSize: 20,
+        marginTop: 15,
+        textAlign: 'center'
+    },
+
     card:{
         width: '90%',
-        //height: 280,
-        borderWidth: 1,
-      borderColor: 'darkgrey', 
-        marginVertical: 20,
+        alignItems: 'center',
+        borderRadius: 10,
+        borderColor: '#F0A500',
+        borderWidth: 0.5,
+        backgroundColor: 'lightgrey',
+        
         shadowColor: "#000",
         shadowOffset: {
         width: 0,
-	    height: 3,
+        height: 3,
         },
         shadowOpacity: 0.27,
         shadowRadius: 4.65,
-
+    
         elevation: 10,
-        backgroundColor: '#fff',        
-    },
-
-    image:{
-        width: '100%',
-        height: 90,
-        opacity: 0.7,
-    },
-
-    title:{
-        fontSize: 25,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        marginVertical: 10,
         
+        paddingHorizontal: 10,
+        paddingVertical: 12,
+
+        marginVertical: 20,
+  
     },
+
 
     text:{
         textAlign: 'center',
         paddingHorizontal: 10,
         letterSpacing: 1.05,
         marginBottom: 20,
-        color: 'grey'
+        color: 'rgba(0,0,0, 0.6)',
+        lineHeight: 20
+        
+        
     },
 
     button:{
-        marginTop: 15,
-        
+        marginVertical: 15,
+               
     }
 
 })

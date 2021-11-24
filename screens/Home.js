@@ -8,16 +8,12 @@ export default function Home({navigation}){
 
     return(
        
-        <ScrollView >
+        <ScrollView style={styles.scrollView}>
              <StatusBar barStyle = "light-content" backgroundColor='#F0A500' />
 
-        <View style={styles.view}>
-            <AppStructure navigation = {navigation}/*  appData = {appData} *//>
-            {/* <Text style={styles.emptyText}>
-            HOME {'\n\n'}
-            La sección de Home deberá mostrar información descriptiva sobre los propósitos de la aplicación tales como nombre de la app, descripción y uso.
-            </Text> */}
-             </View>
+            
+                <AppStructure navigation = {navigation}/>
+            
         </ScrollView>
        
     );
@@ -25,39 +21,11 @@ export default function Home({navigation}){
 
 const styles = StyleSheet.create({
 
-    view:{
-      //  width: "100%",
-        //justifyContent: 'center',
-        alignItems: 'center',
-        //alignContent: 'center',
+    scrollView:{
+        flex: 1,
         backgroundColor: 'rgba(125, 125, 125, 0.1)',
-       
-      
-    }, 
-    
-    scrollview:{
-        backgroundColor: 'pink',
-        marginHorizontal: 0,
-        width: '100%',
-        
-        
     },
 
-
-    emptyText:{
-        width: '85%',
-        marginTop: 100,
-        paddingVertical: 30,
-        paddingHorizontal: 30,
-        justifyContent: 'center',
-        borderWidth: 1,
-        borderRadius: 20,
-        borderColor: '#700B97',
-        textAlign: 'center',
-        color: 'grey',
-        fontSize: 15,
-
-
-    }
+  
 
 })

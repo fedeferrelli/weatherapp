@@ -50,13 +50,19 @@ const Climate = () =>{
 
   return (
 
-    //<TouchableWithoutFeedback /* onPress={() => ocultarTeclado()} */ style={styles.app}>    
+ 
 
       <View style = {styles.app}>
 
+
+
        <StatusBar barStyle = "light-content" backgroundColor='#F0A500' />
+
+ 
        
         <View style = {styles.view}>
+
+       
 
            <FormClima 
            style={styles.form}
@@ -82,6 +88,8 @@ const Climate = () =>{
            
            />
 
+          
+
         <ObtenerClima 
            
            latitudCiudad = {latitudCiudad}
@@ -105,10 +113,15 @@ const Climate = () =>{
 <Loading 
 modalVisible={modalVisible}
 ciudadClimaInput = {ciudadClimaInput}/>
+
+
+
         
       
       </View>  
-    //</TouchableWithoutFeedback>
+
+
+    
   );
 };
 
