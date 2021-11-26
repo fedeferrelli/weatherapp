@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Animated, View, StatusBar} from 'react-native';
-import imagen from '../../assets/images/ice-cream.png';
+import imagen from '../../assets/images/HELADOS.png';
 
 
 const AnimacionEntrada = ({setAnimated}) => {
@@ -39,9 +39,9 @@ const AnimacionEntrada = ({setAnimated}) => {
        }),
      ]).start(() =>
        Animated.timing(font, {
-         toValue: 500,
-         duration: 550,
-         delay: 1000,
+         toValue: 1.3,
+         duration: 2500,
+        // delay: 1000,
          useNativeDriver: false,
        }).start(() => setAnimated(true)),
      );
@@ -57,7 +57,7 @@ const AnimacionEntrada = ({setAnimated}) => {
          />
          <View style={styles.container}>
            <Animated.Image
-             style={[styles.image, {opacity: show/* , transform: [{scale: font}] */}]}
+             style={[styles.image, {opacity: show , transform: [{scale: font}] }]}
              source={imagen}
            />
 
@@ -72,11 +72,11 @@ const AnimacionEntrada = ({setAnimated}) => {
            /> */}
 
 
-           <Animated.Text
+           {/* <Animated.Text
              style={[styles.text, {opacity: show, transform: [{scale: font}]}]}>
             Hola!
 
-           </Animated.Text>
+           </Animated.Text> */}
 
 
          </View>
