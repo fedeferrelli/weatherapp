@@ -42,22 +42,19 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',   
     width: '100%',
-    justifyContent: "center",
+    justifyContent: 'space-evenly',
     alignItems: "center",
-    marginTop: 22,
     backgroundColor: 'rgba(125, 125, 125, 0.65)',
-    marginTop: 55,
-
-    
   },
 
- 
   modalView: {
-    margin: 20,
     backgroundColor: "#F0A500",
     borderRadius: 20,
-    padding: 35,
+    padding: '5%',
     alignItems: "center",
+    justifyContent: 'space-evenly',
+
+
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -67,37 +64,26 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     width: '90%',
-    height: '70%',
-
-
- 
-    
-  },
-
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
   },
   
   modalText: {
     textAlign: "center",
     fontSize: 18,
+    marginBottom: '5%'
   }, 
   
   modalTextCiti:{
       fontSize: 30,
-      fontWeight: 'bold'
-  },
-
-  spinner:{
-  marginVertical:20,
+      fontWeight: 'bold', 
+      textAlign: 'center',
+      marginBottom: '5%'
   },
 
   image:{
-      width: 250,
-      height: 250,
-      marginVertical: 50,
+     width: 200,
+     height: 200,
+     marginBottom: '5%'
   }
 });
+
 

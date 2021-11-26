@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image} from 'react-native';
 import { Icon } from 'react-native-elements';
 
-const FormatoMuestraCiudades = ({ciudadMostrar, listadoCiudades, setListadoCiudades, almacenarCiudades, setModalVisibleCiudades, setModalAccion, setCiudadInput, navigation, route
+const FormatoMuestraCiudades = ({ciudadMostrar, listadoCiudades, setListadoCiudades, almacenarCiudades, setModalVisibleCiudades, setModalAccion, setCiudadInput, navigation
 }) =>{
 
 

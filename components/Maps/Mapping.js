@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import { Marker, Callout } from 'react-native-maps';
 
@@ -10,9 +10,6 @@ export default function Mapping({ciudad, setModalVisibleMapas}) {
   const [latitudCiudad, setLatitud] = useState()
   const [longitudCiudad, setLongitud] = useState()
   const [temp, setTemp] = useState()
-  const [icon, setIcon] = useState()
-  const [max, setMax] = useState()
-  const [min, setMin] = useState()
   const [descripcion, setDescripcion] = useState()
   
   
@@ -32,13 +29,9 @@ export default function Mapping({ciudad, setModalVisibleMapas}) {
 
         setLatitud(resultado.coord.lat);
         setLongitud(resultado.coord.lon)
-
-        
-        setTemp(resultado.main.temp)
-        setIcon(resultado.weather[0].icon)
+        setTemp(resultado.main.temp)       
         setDescripcion(resultado.weather[0].description.trim())
-        setMax(resultado.main.temp_max)
-        setMin(resultado.main.temp_min)
+        
         
         
         
@@ -60,17 +53,12 @@ latAndLongCiudad()
 
 
 
-
-console.log(ciudad)
-
   return (
     <View style={styles.container}>
 
 
-      {max ? 
+      {descripcion ? 
 
-
-     
 
       <MapView 
         style={styles.map}
@@ -82,10 +70,7 @@ console.log(ciudad)
         }
        >    
        
-       
-           
-           
-           
+      
 
       { <Marker
        coordinate={{ latitude: latitudCiudad, longitude: longitudCiudad}}               
@@ -111,13 +96,7 @@ console.log(ciudad)
         </Callout>
 
         </Marker>}
-       
-       
-      
-      
-       
-       
-       
+  
        </MapView>
 
       :
@@ -184,9 +163,6 @@ backgroundColor: '#fff',
     
     paddingLeft: 5,
     marginRight: 20,
-
-    
-    
 
   },
 

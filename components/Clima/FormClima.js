@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableWithoutFeedback, TouchableHighlight, Alert, Keyboard, Pressable} from 'react-native';
+import {View, Text, StyleSheet, TouchableHighlight, Alert, Keyboard} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
 const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades, setCiudad, setTrigger, setLatitudCiudad, setLongitudCiudad, setModalVisible, setSelectValue, selectValue, setReload, reload
@@ -21,10 +21,6 @@ const FormClima = ({ciudadClimaInput, setCiudadClimaInput, listadoClimaCiudades,
             setLatitudCiudad(resultado.coord.lat);
             setLongitudCiudad(resultado.coord.lon)
             setCiudad(resultado.name)
-
-            
-            
-
         }
         catch (error){
             Alert.alert(
@@ -68,8 +64,6 @@ const reloadPickerList = () =>{
                     <View style = {styles.input}>
 
                    
-
-                   
                         <Picker
                             selectedValue={ selectValue}
                             onValueChange={ ciudad => (saveCiudad(ciudad)) }
@@ -80,7 +74,6 @@ const reloadPickerList = () =>{
                                            
                         >
                 
-               
 
                         <Picker.Item  label="Que ciudad deseas ver?" value="" style={{color: 'rgb(125, 125, 125)', width: '100%', fontSize: 18 }}/> 
                         {listadoClimaCiudades.map( cripto => (
@@ -110,10 +103,7 @@ const reloadPickerList = () =>{
                 </View>
                
         </View>
-
-        
-      
-      
+ 
     )
 
 };

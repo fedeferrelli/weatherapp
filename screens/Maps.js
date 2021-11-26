@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import Mapping from "../components/Maps/Mapping";
@@ -6,19 +6,10 @@ import LoadingMapas from '../components/Maps/LoadingMapas';
 
 export default function Maps({route}){
 
-  /*  const [listadoCiudadesMaps, setListadoCiudadesMaps] = useState([]);
-   const [ciudadesDataMaps, setCiudadesDataMaps] = useState([])  
-   const [trigger, setTrigger] = useState(null)
-   
-   const [modalAccion, setModalAccion] = useState(); */
-
-   
+    
 
    const [modalVisibleMapas, setModalVisibleMapas] = useState(false);
    const [ciudad, setCiudad] = useState(route.params);
-
-
-     
 
     return(
       <>

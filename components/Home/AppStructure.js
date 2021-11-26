@@ -144,8 +144,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         color: 'rgba(0,0,0, 0.6)',
         lineHeight: 20
-        
-        
+     
     },
 
     button:{

@@ -169,8 +169,7 @@ setTrigger(false);
 
 return(
     
-   
-    
+
     <ScrollView >
 
 {!showScreen 

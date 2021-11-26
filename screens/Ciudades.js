@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import React, {useEffect, useState} from 'react';
-import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, StatusBar } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Form from '../components/Ciudades/Form';
 import ListadoCiudades from '../components/Ciudades/ListadoCiudades';
@@ -21,13 +21,9 @@ const Ciudades = ({navigation}) =>{
   
 
   useEffect(() => {
-   
-   
 
     const obtenerCiudadesStorage = async() =>{
-     
-      
-      
+   
       try {
         const ciudadesStorage = await AsyncStorage.getItem('ciudades');
         if (ciudadesStorage){
@@ -54,18 +50,12 @@ const Ciudades = ({navigation}) =>{
     } catch (error) {
       console.log(error)       
     };
-
-   
     
 }
 
 
-//console.log(listadoCiudades)
 
-
-  return (
-
-    //<TouchableWithoutFeedback /* onPress={() => ocultarTeclado()} */ style={styles.app}>    
+  return (    
 
       <View style = {styles.app}>
 
@@ -99,9 +89,7 @@ const Ciudades = ({navigation}) =>{
  
         style = {styles.listadoCiudades}
        />
-      
-
-
+  
       <Loading 
         modalVisibleCiudades={modalVisibleCiudades}
         setModalVisibleCiudades={setModalVisibleCiudades}
@@ -110,7 +98,7 @@ const Ciudades = ({navigation}) =>{
 
 
       </View>  
-    //</TouchableWithoutFeedback>
+  
   );
 };
 

@@ -1,5 +1,5 @@
-import React, {useState}  from "react";
-import { View, ScrollView, StatusBar, StyleSheet } from "react-native";
+import React  from "react";
+import { ScrollView, StatusBar, StyleSheet } from "react-native";
 import AppStructure from '../components/Home/AppStructure';
 
 export default function Home({navigation}){

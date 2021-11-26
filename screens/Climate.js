@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import React, {useEffect, useState} from 'react';
-import { Alert, StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, StatusBar } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FormClima from '../components/Clima/FormClima';
 import ObtenerClima from '../components/Clima/ObtenerClima';
@@ -32,7 +32,6 @@ const Climate = () =>{
         const ciudadesStorage = await AsyncStorage.getItem('ciudades');
         if (ciudadesStorage){
         setListadoClimaCiudades(JSON.parse(ciudadesStorage).sort())
-        //setListadoClimaCiudades(sort(listadoClimaCiudades))
         }
       } catch (error) {
 
@@ -50,19 +49,11 @@ const Climate = () =>{
 
   return (
 
- 
-
       <View style = {styles.app}>
 
-
-
        <StatusBar barStyle = "light-content" backgroundColor='#F0A500' />
-
- 
-       
+     
         <View style = {styles.view}>
-
-       
 
            <FormClima 
            style={styles.form}
@@ -105,19 +96,14 @@ const Climate = () =>{
            
            />
 
-
-
         </View>
 
 
-<Loading 
-modalVisible={modalVisible}
-ciudadClimaInput = {ciudadClimaInput}/>
+        <Loading 
+        modalVisible={modalVisible}
+        ciudadClimaInput = {ciudadClimaInput}/>
 
-
-
-        
-      
+    
       </View>  
 
 

@@ -76,19 +76,13 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
     
           keyExtractor={ciudad => Math.random()}
 
-
-
-
-           /> :
+          /> :
           
            <Text style={styles.emptyText}>
             Hola! {'\n\n'}
             Todavía no ingresaste ninguna ciudad, cuando lo hagas se mostará aquí</Text>
         
         }  
-
-         
-
 
         </View>
     );
