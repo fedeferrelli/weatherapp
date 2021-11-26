@@ -1,5 +1,5 @@
 # CLIMATE
-Se puede utilizar para consultar el clima de un conjunto de ciudades.Esta app nos permite además agregar ciudades para luego consultar el clima de las mismas, tambien podremos ver su ubicacion en el mapa y un resumne de la temperatura.
+Se puede utilizar para consultar el clima de un conjunto de ciudades.Esta app nos permite además agregar ciudades para luego consultar el clima de las mismas, tambien podremos ver su ubicacion en el mapa y un resumen de la temperatura.
 Fue realizado a pedido de una vendedora de helados la cual ,para cubrir la demanda, necesita estar al tanto del clima de los lugares en los que vende su producto.
 
 [PERSONA CANVA](https://drive.google.com/file/d/1QBJtl6rgolJCoW8UG_xfVqEensgCor79/view?usp=sharing)
@@ -11,14 +11,14 @@ El siguiente enlace es el prototipeado que se le mostro a la clienta para luego 
 
 # Descripción
 Aplicacion realizada en React Native.
-En el proyecto se utilizaron las siguientes aplicacines:
+En el proyecto se utilizaron las siguientes aplicaciones:
 * [NODE JS](https://nodejs.org/es/)
 * [YARN](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 * [EXPO-CLI](https://docs.expo.dev/workflow/expo-cli/)
 * [Android Studio](https://developer.android.com/studio) - Emulador ANDROID
 * [XCODE](https://developer.apple.com/xcode/)  - Emulador IOS (funciona solo en sistema IOS ,en Windows no)
 
-Se utilizaron las siguientes dependecias para su funcionamiento:
+También se utilizaron las dependecias que se listan a continuación:
 
 | Dependencia | Versión |
 | ------------- | ------------- |
@@ -59,7 +59,7 @@ Para poder ejecutar la APP deberemos hacer lo siguiente:
 
 ## USO
 Para iniciar la aplicacion escanear el siguinte codigo QR, recordar tener instalado previamente en el celular EXPO GO y tener una cuenta como se explicó en Instalación
-![Codigo QR](https://drive.google.com/file/d/1EsTwAA9OhNuPUyE9kagWrpu6qN7Sr_ct/view?usp=sharing)
+![Codigo QR](/../main/assets/images/HELADOS.png)
 
 
 
