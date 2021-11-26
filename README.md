@@ -59,7 +59,8 @@ Para poder ejecutar la APP deberemos hacer lo siguiente:
 
 ## USO
 Para iniciar la aplicacion escanear el siguinte codigo QR, recordar tener instalado previamente en el celular EXPO GO y tener una cuenta como se explicó en Instalación
-![Codigo QR](/../main/assets/images/HELADOS.png)
+<br>
+![Codigo QR](/../main/assets/images/QR.png)
 
 
 
