@@ -62,3 +62,7 @@ Para iniciar la aplicacion escanear el siguinte codigo QR, recordar tener instal
 <br>
 ![Codigo QR](/../main/assets/images/QR.png)
 
+o abrir el siguiente enlace
+
+exp://exp.host/@ggirolim/climate
+
