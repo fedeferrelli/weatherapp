@@ -32,8 +32,8 @@ const Current = ({temp,
         <View style = {styles.view}>
             
             <View style = {styles.leftView}>
-            <Text style = {styles.temp}> {parseInt(temp)}º</Text>
-            <Text style = {styles.sensacion}> sensación térmica {parseInt(sensacion)}º </Text>
+            <Text style = {styles.temp}> {Math.round(temp)}º</Text>
+            <Text style = {styles.sensacion}> sensación térmica {Math.round(sensacion)}º </Text>
             <Text style = {styles.sensacion}> {condicion} </Text>
             </View>
 

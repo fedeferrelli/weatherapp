@@ -83,7 +83,7 @@ const ObtenerClima = ( {latitudCiudad, longitudCiudad, trigger, setTrigger, ciud
             
             
     const appikey = 'ba1cc65b03d369778c8ef79d62d52ffd';
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitudCiudad}&lon=${longitudCiudad}&units=metric&lang=es&exclude={part}&appid=${appikey}`;
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitudCiudad}&lon=${longitudCiudad}&units=metric&lang=es&appid=${appikey}`;
     
     
         try {

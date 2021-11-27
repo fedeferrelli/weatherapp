@@ -26,16 +26,16 @@ const CurrentExtended = ({
     return(
         <View style={styles.view}>
             <View style={styles.sides}>
-                <Text style = {styles.ext}>  máxima: {parseInt(max)}º</Text>
-                <Text style = {styles.ext}>  viento: {wind} km/h</Text>
-                <Text style = {styles.ext}>  sale el sol: {obtenerHora(sunrise)} </Text>
+                <Text style = {styles.ext}>máxima: {Math.round(max)}º</Text>
+                <Text style = {styles.ext}>viento: {Math.round(wind)} km/h</Text>
+                <Text style = {styles.ext}>sale el sol: {obtenerHora(sunrise)}</Text>
             </View>
 
             <View style={styles.sides}>
                
-                <Text style = {styles.ext}>  mínima: {parseInt(min)}º</Text>
-                <Text style = {styles.ext}>  humedad: {humidity}%</Text>
-                <Text style = {styles.ext}> pone el sol: {obtenerHora(sunset)} </Text>      
+                <Text style = {styles.ext}>mínima: {Math.round(min)}º</Text>
+                <Text style = {styles.ext}>humedad: {humidity}%</Text>
+                <Text style = {styles.ext}>pone el sol: {obtenerHora(sunset)}</Text>      
             </View>
         </View>
     )
@@ -90,6 +90,7 @@ ext:{
     fontSize: 16,
     marginTop: 0,
     marginVertical:10,
+    textAlign: 'center'
 },
 
 })

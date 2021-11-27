@@ -38,19 +38,12 @@ const ListadoCiudades = ({listadoCiudades, setListadoCiudades, almacenarCiudades
            setCiudadesData(ciudadesPromesas);
            setModalVisibleCiudades(false)
            setCiudadInput('');
-          
-
         };
-    
-        mapLoop();   
-    
- 
-        
+        mapLoop();     
       }, [listadoCiudades]);
 
 
-   
-    
+
     return(
         <View style = {styles.view}>
 

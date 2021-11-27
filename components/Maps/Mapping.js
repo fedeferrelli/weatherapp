@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Alert } from 'react-native';
 import { Marker, Callout } from 'react-native-maps';
 
 
 
-export default function Mapping({ciudad, setModalVisibleMapas}) {
+export default function Mapping({ciudad, setModalVisibleMapas, navigation}) {
 
   const [latitudCiudad, setLatitud] = useState()
   const [longitudCiudad, setLongitud] = useState()
@@ -59,7 +59,7 @@ latAndLongCiudad()
 
       {descripcion ? 
 
-
+<>
       <MapView 
         style={styles.map}
         initialRegion={
@@ -96,8 +96,12 @@ latAndLongCiudad()
         </Callout>
 
         </Marker>}
-  
+
        </MapView>
+
+
+
+      </>
 
       :
 
