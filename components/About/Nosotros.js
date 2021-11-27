@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import { Button } from "react-native-elements";
+
 
 export default function Nosotros() {
   return (
     <View style={styles.view}>
       <View style={styles.card}>
-        <Text style={styles.textTitulo}>DESARROLLO</Text>
+        <Text style={styles.textTitulo}>Desarrollo</Text>
         <Text style={styles.text}>
           La aplicación fue desarrollada en el marco de la especialización en
           desarrollo mobile patrocinada por Codo a Codo e IBM.{"\n"}Creada en su
@@ -18,19 +18,18 @@ export default function Nosotros() {
       <View style={styles.cardTeam}>
         <Text style={styles.textTitulo}>EQUIPO</Text>
         <View style={styles.card}>
-          <Text style={styles.textTituloTeam}>FEDERICO FERELLI</Text>
+          <Text style={styles.textTituloTeam}>Federico Ferrelli</Text>
           <Text style={styles.text}>
-            Asesor Financiero del presidente de la Nación. Filántropo , alias
-            Satoshi Nakamoto creador del Bitcoin.
+            Economista especializado en finanzas corporativas. Frontend developer in the making.
           </Text>
           <Image
-            source={require("../../assets/images/Fede.webp")}
+            source={require("../../assets/images/Fede.jpg")}
             style={styles.image}
           />
         </View>
 
         <View style={styles.card}>
-          <Text style={styles.textTituloTeam}>GUILLERMO GIROLIMINI</Text>
+          <Text style={styles.textTituloTeam}>Guillermo Girolimini</Text>
           <Text style={styles.text}>
             Analista Programador de Sistemas. Docente de la asignatura
             Informática de Nivel Medio del Ministerio de Educación de la
@@ -133,5 +132,6 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: "5%",
+
   },
 });

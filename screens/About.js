@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, ScrollView, StatusBar, StyleSheet } from "react-native";
+import { ScrollView, StatusBar, StyleSheet } from "react-native";
 import Nosotros from "../components/About/Nosotros";
 
 export default function About({ navigation }) {

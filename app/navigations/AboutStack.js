@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../../screens/About";
+import About from "../../screens/About";
 
 const Stack = createStackNavigator();
 
@@ -25,8 +25,8 @@ export default function AboutStack() {
     >
       <Stack.Screen
         name="About"
-        component={Home}
-        options={{ title: "Quiénes somos" }}
+        component={About}
+        options={{ title: "Quiénes Somos" }}
       />
     </Stack.Navigator>
   );
