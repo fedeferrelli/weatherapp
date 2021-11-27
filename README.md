@@ -1,26 +1,29 @@
-# CLIMATE
-Se puede utilizar para consultar el clima de un conjunto de ciudades.Esta app nos permite además agregar ciudades para luego consultar el clima de las mismas, también podremos ver su ubicacion en el mapa y un resumen de la temperatura.
-Fue realizado a pedido de una vendedora de helados la cual ,para cubrir la demanda, necesita estar al tanto del clima de los lugares en los que vende su producto.
+# HELA2
+## Descripción
 
-[PERSONA CANVA](https://drive.google.com/file/d/1QBJtl6rgolJCoW8UG_xfVqEensgCor79/view?usp=sharing)
+Aplicación realizada en React Native.Se puede utilizar para consultar el clima de un conjunto de ciudades. Esta app nos permite además agregar varias ciudades para luego consultar el clima de las mismas, también podremos ver su ubicación en el mapa y un resumen de la temperatura en el mismo.
+El proyecto fue realizado a pedido de una vendedora de helados la cual ,para cubrir la demanda, necesitaba estar al tanto del clima de los lugares en los que vende su producto.
 
-El siguiente enlace es el prototipeado que se le mostro a la clienta para luego realizar la APP
+[PERSONA CANVAS](https://drive.google.com/file/d/1QBJtl6rgolJCoW8UG_xfVqEensgCor79/view?usp=sharing)
+
+El siguiente enlace es el prototipado que se le mostro a la clienta para luego realizar la APP
 
 [PROTOTYPING CLIMATE](https://drive.google.com/file/d/1_uWMvVBEYprK4Ypll7d4X_6_V4HwTp08/view?usp=sharing)
 
 
-# Descripción
-Aplicacion realizada en React Native.
-En el proyecto se utilizaron las siguientes aplicaciones:
+# INSTALACIÓN
+Para poder ejecutar el proyecto en otro equipo, se necesitan instalar las siguientes aplicaciones:
+
 * [NODE JS](https://nodejs.org/es/)
 * [YARN](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 * [EXPO-CLI](https://docs.expo.dev/workflow/expo-cli/)
+   -  Ejecutar el siguiente comando en el terminal  ```yarn global add expo-cli```
 * [Android Studio](https://developer.android.com/studio) - Emulador ANDROID
-* [XCODE](https://developer.apple.com/xcode/)  - Emulador IOS (funciona solo en sistema IOS ,en Windows no)
 
-También se utilizaron las dependecias que se listan a continuación:
 
-| Dependencia | Versión |
+También es necesario instalar las librerías que se listan a continuación:
+
+| Librerias | Versión |
 | ------------- | ------------- |
 |@react-native-async-storage/async-storage|1.15.13|
 |@react-native-community/masked-view| 0.1.6|
@@ -30,7 +33,6 @@ También se utilizaron las dependecias que se listan a continuación:
 |@react-navigation/native| 6.0.6|
 |@react-navigation/native-stack| 6.2.5|
 |@react-navigation/stack| 5.10.0|
-|axios| 0.23.0|
 |expo| 43.0.0|
 |expo-status-bar| 1.1.0|
 |react| 17.0.1|
@@ -44,21 +46,56 @@ También se utilizaron las dependecias que se listan a continuación:
 |react-native-screens| 3.8.0|
 |react-native-web| 0.17.1|
 
+Para hacerlo se deberá ejecutar en el terminal la siguiente secuencia de comandos
+
+yarn add "libreria"@~version
+
+por ejemplo:
+
+```yarn add @react-navigation/native@~6.0.6```
+
+Luego deberemos ejecutar en el terminal el siguiente comando para crear la aplicación en Expo
+
+```expo init weatherapp```
+
+Descargar el repositorio de Github y sobreescribir el contenido de la carpeta weatherapp creada anteriormente.
+
+Por último ejecutar en el terminal el comando
+
+```expo start```
+
+Esto nos abrirá nuestro navegador predeterminado donde habrá un código QR que podremos escanear desde la app EXPO GO, cuya instalación se explica más abajo en la Opción 1.
+Todos esa secuencia de pasos explicada nos permitirá, aparte de ver la app en funcionamiento ,poder editarla y realizar los cambios que queramos.
 
 
-# Instalación
+# USO
 
-Para poder ejecutar la APP deberemos hacer lo siguiente: 
+Si simplemente queremos probar o usar la APP en un dispositivo ANDROID, deberemos hacer lo siguiente: 
+
+###### Opción 1
+
+
 * Instalar en nuestro smartphone la aplicación:
-   - [EXPO GO](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=es_AR&gl=US) en el caso de ANDROID
-   - [EXPO GO](https://apps.apple.com/es/app/expo-go/id982107779) en el caso de IOS
+   - [EXPO GO](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=es_AR&gl=US) 
+   
 * Crear un usuario desde la [página de EXPO](https://expo.dev/signup)
-* Loguearnos con el usuario en la APP de EXPO instalada en el Smartphone
+* Loguearnos con el usuario creado en la APP de EXPO instalada en el Smartphone
 
 
-
-## USO
-Para iniciar la aplicacion escanear el siguinte codigo QR, recordar tener instalado previamente en el celular EXPO GO y tener una cuenta como se explicó en Instalación
+Iniciar la APP escaneando el siguiente código QR. (Recordar tener instalado previamente en el celular EXPO GO y tener una cuenta como se explicó anteriormente)
 <br>
-![Codigo QR](/../main/assets/images/QR.png)
+![Código QR](/../main/assets/images/QR.png)
+
+###### Opción 2
+
+Descargando e instalando el siguiente APK :
+
+[DESCARGAR APK]
+
+(Recordar que como es una aplicación externa nos aparecerán varios mensajes de seguridad los cuales deberemos ignorar o aceptar según el caso)
+
+# DOCUMENTACIÓN
+En el siguiente documento se explica,resumidamente, el propósito y la función de los componentes creados en la APP.
+
+[DOCUMENTACIÓN CÓDIGO]
 
