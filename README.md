@@ -1,5 +1,5 @@
 # CLIMATE
-Se puede utilizar para consultar el clima de un conjunto de ciudades.Esta app nos permite además agregar ciudades para luego consultar el clima de las mismas, tambien podremos ver su ubicacion en el mapa y un resumen de la temperatura.
+Se puede utilizar para consultar el clima de un conjunto de ciudades.Esta app nos permite además agregar ciudades para luego consultar el clima de las mismas, también podremos ver su ubicacion en el mapa y un resumen de la temperatura.
 Fue realizado a pedido de una vendedora de helados la cual ,para cubrir la demanda, necesita estar al tanto del clima de los lugares en los que vende su producto.
 
 [PERSONA CANVA](https://drive.google.com/file/d/1QBJtl6rgolJCoW8UG_xfVqEensgCor79/view?usp=sharing)
