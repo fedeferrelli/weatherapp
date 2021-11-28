@@ -95,7 +95,7 @@ o bien abriendo el siquiente enlace:
 
 Descargando e instalando el siguiente APK :
 
-[DESCARGAR APK]
+[DESCARGAR APK](https://drive.google.com/file/d/1kLk5deQQww7zwBtHpSSgT_rxnWQ0OX3R/view?usp=sharing)
 
 (Recordar que como es una aplicación externa nos aparecerán varios mensajes de seguridad los cuales deberemos ignorar o aceptar según el caso)
 
@@ -111,9 +111,9 @@ La solución diseñada tiene 4 stacks
 
 ###### HomeStack
 
-Este Stack tiene como objetivo saludar al usuario y explicarle brevemente lo que podrá hacer con la apliación. Además se le proveen los botones para acceder de manera más rápida a cada funcionalidad.
+Este Stack tiene como objetivo saludar al usuario y explicarle brevemente lo que podrá hacer con la aplicación. Además se le proveen los botones para acceder de manera más rápida a cada funcionalidad.
 
-Posee una sola pantalla (Home) que se alilmenta del componente AppStructure.
+Posee una sola pantalla (Home) que se alimenta del componente AppStructure.
 
 ###### CiuadadesStack
 
@@ -124,14 +124,16 @@ Este stack tiene dos pantallas: Ciudades y Mapa.
 La pantalla Ciudades se integra de 3 componentes: Form, ListadoCiudades y LoadingCiudades. 
 
 El componente Form es uno de los más importantes porque es el único en toda la aplicación por el cual ingresa la información el usuario. Aquí el usuario ingresa el nombre de una ciudad que quiera listar y, mediante la función crearCiudad, se puede llegar a cuatro descenlaces: 
-   a) si el campo está vacío se devuelve un alerta, 
-   b) si el campo no está vacío se hace un llamado a la API Weather API (https://openweathermap.org/api) y se coteja lo ingresado. Si la ciudad ingresada no figura en la API entonces se dispará un alerta y 
-   c) si la ciudad ingresada sí existe entonces se controla que no esté ya incorporada en la lista (previamente cargada desde la memoria vía AsyncStorage): si está ern la lista entonces se dispara una alerta y
-   d) si el campo ingresado no es vacío, la ciudad existe en la API y esa ciudad no está en la lista, entonces se agrega a la lista. 
+   a) Si el campo está vacío se devuelve un alerta.
+   b) Si el campo no está vacío se hace un llamado a la API Weather API (https://openweathermap.org/api) y se coteja lo ingresado. Si la ciudad ingresada no figura en la API entonces se dispará un alerta.
+   c) Si la ciudad ingresada sí existe entonces se controla que no esté ya incorporada en la lista (previamente cargada desde la memoria vía AsyncStorage): si está en la lista entonces se dispara una alerta.
+   d) Si el campo ingresado no es vacío, la ciudad existe en la API y esa ciudad no está en la lista, entonces se agrega a la lista. 
    
-El componente ListadoCiudades tiene como objeto listar cada una de las ciudades de la lista junto a la la temperatura y el icono de la condición actual del clima. Además, la posibilidad de eliminar la ciudad de la lista. Para llevar a cabo esta tarea se vale de: 1) la función para mapLoop que obtiene las condiciones climáticas de cada una de las ciudades de la lista y 2) el componente FormatoMuestraCiudades que elabora un listado de esa información a través de un FlatList.
+El componente ListadoCiudades tiene como objeto listar cada una de las ciudades de la lista junto a la temperatura y el icono de la condición actual del clima. Además, la posibilidad de eliminar la ciudad de la lista. Para llevar a cabo esta tarea se vale de:
+1) La función para mapLoop que obtiene las condiciones climáticas de cada una de las ciudades de la lista
+2) El componente FormatoMuestraCiudades que elabora un listado de esa información a través de un FlatList.
 
-La pantalla Mapa se alcanza a traves de navegar desde el FlatList: al presionar el nombre de la ciudad se traslda la información al componente Mapping y se muestra el mapa con un pin de la ciudad presionada (además, al presionar ese pin se despliega un cuadro con el nombre de la ciudad, la temperatura y consición climática actual). 
+La pantalla Mapa se alcanza a través de navegar desde el FlatList: al presionar el nombre de la ciudad se traslda la información al componente Mapping y se muestra el mapa con un pin de la ciudad presionada (además, al presionar ese pin se despliega un cuadro con el nombre de la ciudad, la temperatura y consición climática actual). 
 
 
 ###### ClimaStack
@@ -140,11 +142,11 @@ La funcionalidad de este Stack está relacionada con poder acceder a un mayor de
 
 A través del FormClima se accede a un picker que permite elegir alguna de las ciudades listadas en el stack de ciudades.
 
-Una vez seleccionada una ciudad, se obtiene la latitud y longitud y se pasa al componnete ObtenerClima que hace un pedido de información (amplia) llamando a Weather API. Finalmente, esa información es pasada a otros dos componentes 8relacionados unicamente con ObtenerClima): Current (que retorna la información relacionada a las condciones del día de la fecha) y a CurrentExtended (que se ocupa de retornar el pronóstico extendido para los próximos 7 días).   
+Una vez seleccionada una ciudad, se obtiene la latitud y longitud y se pasa al componete ObtenerClima que hace un pedido de información (amplia) llamando a Weather API. Finalmente, esa información es pasada a otros dos componentes relacionados únicamente con ObtenerClima: Current (que retorna la información relacionada a las condiciones del día de la fecha) y a CurrentExtended (que se ocupa de retornar el pronóstico extendido para los próximos 7 días).   
 
 ###### AboutStack
 
-Por último, en este stack solamenete figura información relacionada a los integrantes del grupo y características elemntales del presente proyecto.
+Por último, en este stack solamenete figura información relacionada a los integrantes del grupo y características elementales del presente proyecto.
 
 
 
