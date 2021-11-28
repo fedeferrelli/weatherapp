@@ -102,7 +102,7 @@ Descargando e instalando el siguiente APK :
 # DOCUMENTACIÓN
 En el siguiente documento se explica, resumidamente, el propósito y la función de los componentes creados en la APP.
 
-La solución diseñada tiene 4 stacks
+La solución diseñada tiene 4 stacks:
 
 1. HomeStack
 2. CiudaesStack
@@ -117,7 +117,7 @@ Posee una sola pantalla (Home) que se alimenta del componente AppStructure.
 
 ###### CiuadadesStack
 
-Este stack es el más completo de los cuatro. Su objetivo es que el usuario pueda ingresar y ver (junto a un breve resumen de las condiciones climáticas actuales) las ciudades que quiera en su lista particular. Ademas, puede observar cada una de las ciudades listadas en un mapa.
+Este stack es el más completo de los cuatro. Su objetivo es que el usuario pueda ingresar y ver (junto a un breve resumen de las condiciones climáticas actuales) las ciudades que quiera en su lista particular. Además, puede observar cada una de las ciudades listadas en un mapa.
 
 Este stack tiene dos pantallas: Ciudades y Mapa.
 
@@ -138,11 +138,12 @@ La pantalla Mapa se alcanza a través de navegar desde el FlatList: al presionar
 
 ###### ClimaStack
 
-La funcionalidad de este Stack está relacionada con poder acceder a un mayor detalle de las condiciones climáticas actuales y al pronóstico extendedido a una semana. Posee una sola pantalla (clima) que hace uso de 3 componentes: Loading, FormClima, ObtenerClima
+La funcionalidad de este Stack está relacionada con poder acceder a un mayor detalle de las condiciones climáticas actuales y al pronóstico extendedido a una semana de una ciudad determinada. Posee una sola pantalla (clima) que hace uso de 3 componentes: Loading, FormClima, ObtenerClima
 
 A través del FormClima se accede a un picker que permite elegir alguna de las ciudades listadas en el stack de ciudades.
 
 Una vez seleccionada una ciudad, se obtiene la latitud y longitud y se pasa al componete ObtenerClima que hace un pedido de información (amplia) llamando a Weather API. Finalmente, esa información es pasada a otros dos componentes relacionados únicamente con ObtenerClima: Current (que retorna la información relacionada a las condiciones del día de la fecha) y a CurrentExtended (que se ocupa de retornar el pronóstico extendido para los próximos 7 días).   
+
 
 ###### AboutStack
 
