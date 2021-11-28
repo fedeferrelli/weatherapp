@@ -86,6 +86,11 @@ Iniciar la APP escaneando el siguiente código QR. (Recordar tener instalado pre
 <br>
 ![Código QR](/../main/assets/images/QR.png)
 
+o bien abriendo el siquiente enlace:
+
+[Abrir enlace](exp://exp.host/@ggirolim/climate)
+
+
 ###### Opción 2
 
 Descargando e instalando el siguiente APK :
